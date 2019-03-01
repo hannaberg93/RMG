@@ -20,6 +20,9 @@
 	@yield('content')
 	<!-- end section('content') -->
 
+	<!-- include our footer -->
+	@include('layouts/footer')
+	<!-- end of our footer -->
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
