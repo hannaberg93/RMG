@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Location;
+use App\Category;
 use Illuminate\Http\Request;
 
 class LocationController extends Controller
@@ -15,7 +16,8 @@ class LocationController extends Controller
     public function index()
     {
         $locations = Location::all();
-        return view('locations/index', ['locations' => $locations ]);
+        $categories = Category::all();
+        return view('locations/index', ['locations' => $locations, 'categories' => $categories ]);
     }
 
     /**
