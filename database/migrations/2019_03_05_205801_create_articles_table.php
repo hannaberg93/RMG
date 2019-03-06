@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArticleCategoryTable extends Migration
+class CreateArticlesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -34,6 +34,6 @@ class CreateArticleCategoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('article_category');
+        Schema::dropIfExists('articles');
     }
 }
