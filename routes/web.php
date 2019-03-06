@@ -17,4 +17,4 @@ Route::get('/', function () {
 
 
 Route::resource('/locations', 'LocationController');
-
+Route::resource('/articles', 'ArticleController');
