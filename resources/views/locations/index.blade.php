@@ -39,23 +39,9 @@
                     <div class = "form-group" >
                         <label for = "name">Kategori:</label>
                         <select multiple class = "form-control">
-                        <optgroup value="1" label="Elektronik">
-                        <option value="2">Kamerautrustning</option>
-                        <option value="3">Datorutrustning</option>
-                        <option value="4">Ljudutrustning</option>
-                        <option value="0"></option>
-                        <optgroup value="5" label="Fritid & Hobby">
-                        <option value="6">Träningsmaskiner</option>
-                        <option value="7">Tävlings cyklar</option>
-                        <option value="8">Sport & fritids utrustning</option>
-                        <option value="9">Motortävlings utrustning</option>
-                        <option value="10">Musikutrustning</option>
-                        <option value="0"></option>
-                        <optgroup value="11" label="Fordon">
-                        <option value="12">Bilar</option>
-                        <option value="13">Motorcyklar</option>
-                        <option value="14">Båtar</option>
-                        <option value="15">Cyklar</option>
+                            @foreach($categories as $category)
+                                <option><li>{{ $category->name }}</li></option>
+		                    @endforeach
                         </select>
                     </div>
                 </form>
