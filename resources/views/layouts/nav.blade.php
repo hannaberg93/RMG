@@ -13,7 +13,7 @@
                     <a class="nav-link" href="/">Hem</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Kategorier</a>
+                    <a class="nav-link" href="/locations">Sök</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/">Logga in/registrera</a>
