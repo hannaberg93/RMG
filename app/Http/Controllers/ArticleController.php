@@ -14,7 +14,9 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        $articles = Article::all();
+
+        return view('articles/index', ['articles' => $articles]);
     }
 
     /**
@@ -24,7 +26,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('articles/create');
     }
 
     /**
@@ -35,7 +37,20 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $article = new Article();
+
+        $article->title = $request->title;
+        $article->desc = $request->desc;
+        $article->price_per_hour = $request->price_per_hour;
+        $article->price_per_day = $request->price_per_day;
+        $article->price_per_week = $request->price_per_week;
+        $article->images_url = $request->images_url;
+
+
+        $article->save();
+
+        return redirect('/articles/' . $article->id);
+        
     }
 
     /**
@@ -44,9 +59,11 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+    public function show($id)
     {
-        //
+        $article = Article::find($id);
+
+        return view('articles/show', ['article' => $article]);
     }
 
     /**
@@ -57,7 +74,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        return view ('articles/edit', ['article' => $article]);
     }
 
     /**
@@ -69,7 +86,15 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        //
+        $article->title = $request->title;
+        $article->desc = $request->desc;
+        $article->price_per_hour = $request->price_per_hour;
+        $article->price_per_day = $request->price_per_day;
+        $article->price_per_week = $request->price_per_week;
+
+        $article->save();
+
+        return redirect('/articles/' . $article->id);
     }
 
     /**
@@ -80,6 +105,8 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        //
+        $article->delete();
+
+        return redirect('/articles');
     }
 }
