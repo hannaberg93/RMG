@@ -16,7 +16,5 @@ Route::get('/', function () {
 });
 
 
-Route::get('/search', function () {
-    return view('search');
-});
+Route::resource('/locations', 'LocationController');
 

@@ -24,32 +24,13 @@
                 <form role = "form">
                     <div class = "form-group" >
                         <label for = "name">Område:</label>
-                        <!-- <select multiple class = "form-control">
-                        <option value="1">Hela Sverige</option>
-                        <option value="2">Norrbotten</option>
-                        <option value="3">Västerbotten</option>
-                        <option value="4">Jämtland</option>
-                        <option value="5">Västernorrland</option>
-                        <option value="6">Gävleborg</option>
-                        <option value="7">Dalarna</option>
-                        <option value="8">Värmland</option>
-                        <option value="9">Västmanland</option>
-                        <option value="10">Stockholm</option>
-                        <option value="11">Södermanland</option>
-                        <option value="12">Skaraborg</option>
-                        <option value="13">Östergötland</option>
-                        <option value="14">Älvsborg</option>
-                        <option value="15">Gotland</option>
-                        <option value="16">Halland</option>
-                        <option value="17">Kronoberg</option>
-                        <option value="18">Blekinge</option>
-                        <option value="19">Skåne</option>
-                        </select> -->
-                        <ol>
+                        <ul>
+                        <select multiple class = "form-control">
 		                    @foreach($locations as $location)
-		                    	<li>{{ $location->name }}</li>
+                                <option><li>{{ $location->name }}</li></option>
 		                    @endforeach
-		                </ol>
+                        </select>
+		                </ul>
                     </div>
                 </form>
                 </div>
@@ -100,7 +81,9 @@
 select.form-control[multiple] {
     height: 50vh;
     width: 25vw;
-    background-color: #42b3f4;
+    background-color: lightgrey;
+    border: 1px solid black;
+    box-shadow: 5px 5px 3px  grey;
 }
 
 body > div > form > div > select > option:hover {
@@ -109,6 +92,11 @@ body > div > form > div > select > option:hover {
 
 body > div > div > div > div.container > div > div:nth-child(3) > form{
     height: 50vh;
+}
+
+body > div > div:nth-child(2) > div > div.col-2 > button{
+    border: 1px solid black;
+    box-shadow: 5px 5px 3px grey;
 }
 
 </style>
