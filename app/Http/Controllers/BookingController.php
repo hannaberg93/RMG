@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\ArticleCategory;
+use App\Booking;
 use Illuminate\Http\Request;
 
-class ArticleCategoryController extends Controller
+class BookingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class ArticleCategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\ArticleCategory  $articleCategory
+     * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function show(ArticleCategory $articleCategory)
+    public function show(Booking $booking)
     {
         //
     }
@@ -52,10 +52,10 @@ class ArticleCategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\ArticleCategory  $articleCategory
+     * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function edit(ArticleCategory $articleCategory)
+    public function edit(Booking $booking)
     {
         //
     }
@@ -64,10 +64,10 @@ class ArticleCategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ArticleCategory  $articleCategory
+     * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ArticleCategory $articleCategory)
+    public function update(Request $request, Booking $booking)
     {
         //
     }
@@ -75,10 +75,10 @@ class ArticleCategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ArticleCategory  $articleCategory
+     * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ArticleCategory $articleCategory)
+    public function destroy(Booking $booking)
     {
         //
     }
