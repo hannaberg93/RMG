@@ -9,8 +9,8 @@ class ArticleController extends Controller
 {
 
     protected $validation_rules = [
-        'title' => 'required|min3',
-        'desc' => 'required|min5',
+        'title' => 'required|min:3',
+        'desc' => 'required|min:5',
     ];
 
     /**
@@ -44,21 +44,15 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         
-        $validData = $request->validate([
-            'title' => 'required|min3',
-            'desc' => 'required',
-            'price_per_hour' => 'required',
-            'price_per_day' => 'required',
-            'price_per_week' => 'required'
-        ]);
+        $validData = $request->validate($this->validation_rules);
 
         $article = new Article();
 
         $article->title = $validData['title'];
         $article->desc = $validData['desc'];
-        $article->price_per_hour = $validData['price_per_hour'];
-        $article->price_per_day = $validData['price_per_day'];
-        $article->price_per_week = $validData['price_per_week'];
+        $article->price_per_hour = $request->price_per_hour;
+        $article->price_per_day = $request->price_per_day;
+        $article->price_per_week = $request->price_per_week;
         $article->images_url = $request->images_url;
 
         $article->save();
