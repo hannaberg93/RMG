@@ -21,7 +21,10 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all();
+<<<<<<< HEAD
 
+=======
+>>>>>>> hannas
         return view('articles/index', ['articles' => $articles]);
     }
 
@@ -69,7 +72,9 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        //
+        $location = $article->location;
+
+        return view('/articles/show', ['article' => $article, 'location' => $location]);
     }
 
     /**
@@ -80,7 +85,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        return view('/articles.edit', ['article' => $article]);
     }
 
     /**
@@ -92,7 +97,9 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        //
+        $article->update(request(['title', 'desc']));
+
+        return view('/articles.edit', ['article' => $article]);
     }
 
     /**
@@ -103,6 +110,7 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        //
+        $article->delete();
+        return redirect('/articles');
     }
 }
