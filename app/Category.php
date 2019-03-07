@@ -8,6 +8,6 @@ use App\Article;
 class Category extends Model
 {
     public function articles(){
-        return $this->hasMany(Article::class);
+        return $this->belongsToMany(Article::class);
     }
 }
