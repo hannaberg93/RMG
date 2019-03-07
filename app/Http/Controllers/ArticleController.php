@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+
+    protected $validation_rules = [
+        'title' => 'required|min3',
+        'desc' => 'required|min5',
+    ];
+
     /**
      * Display a listing of the resource.
      *
@@ -37,19 +43,27 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        
+        $validData = $request->validate([
+            'title' => 'required|min3',
+            'desc' => 'required',
+            'price_per_hour' => 'required',
+            'price_per_day' => 'required',
+            'price_per_week' => 'required'
+        ]);
+
         $article = new Article();
 
-        $article->title = $request->title;
-        $article->desc = $request->desc;
-        $article->price_per_hour = $request->price_per_hour;
-        $article->price_per_day = $request->price_per_day;
-        $article->price_per_week = $request->price_per_week;
+        $article->title = $validData['title'];
+        $article->desc = $validData['desc'];
+        $article->price_per_hour = $validData['price_per_hour'];
+        $article->price_per_day = $validData['price_per_day'];
+        $article->price_per_week = $validData['price_per_week'];
         $article->images_url = $request->images_url;
-
 
         $article->save();
 
-        return redirect('/articles/' . $article->id);
+        return redirect('/articles/' . $article->id)->with('status', 'Artikeln skapades');;
         
     }
 
