@@ -2,73 +2,113 @@
 
 @section('content')
 
-<div class="container mt-5">
+
+
+<div class="container main-article-container mt-5">
+
+
     <div class="row justify-content-center">
-
         <div class="col-md-5 mb-4">
-            <img src="https://slag1gymauktioner.se/wp-content/uploads/2018/10/placeholder.png" class="img-fluid mx-auto d-block"  style="height:400px; width:400px;">
+            <img src="{{ $article->images_url }}" class="img-fluid mx-auto d-block"  style="height:400px; width:400px;">
+            <button class="btn btn-warning m-3 mx-auto d-block"><a style="text-decoration:none; color:black;" href="/articles/{{$article->id}}/edit">Redigera/Ta bort artikel</a></button>
         </div>
+    </div> <!-- END .row -->
 
-        <div class="article-info col-md-5 mb-4">
-            <button class="btn btn-warning float-right"><a href="/articles/{{$article->id}}/edit">Redigera/Ta Bort Artikel</a></button>
+    <div class="row justify-content-center">
+        <div class="article-info col-md-7 mb-4"">
 
-            <p class="mb-0">Upplagd av Username</p>
-            <p class="mt-0">{{ $article->created_at }}</p>
-            <h2>{{ $article->title }}</h2>
+
+            <h2 class="mt-1 mb-2">{{ $article->title }}</h2>
+            <p class="mb-0">Upplagd av {{ $article->user->name }}</p>
+            <p class="mt-0">{{ \Carbon\Carbon::parse($article->created_at)->format('d F, Y H:i') }}</p>
             <hr>
-            <span class="badge badge-secondary p-2"><i class="fas fa-map-marker-alt"></i>{{ $article->city }}</span>
-            <span clqass="badge badge-secondary p-2">{{ $article->category->name }}</span>
+            <span class="badge badge-secondary p-2"><i class="fas fa-map-marker-alt"></i> {{ $article->city }}</span>
+            <span class="badge badge-secondary p-2"> {{ $article->category->name }}</span>
 
             <hr>
+            <div class="description">
+                <p class="mt-4">Beskrivning</p>
+                <p>{{ $article->desc }}</p>
+            </div>
+            <hr>
 
-            <div class="row prices text-center justify-content-center m-2">
-                <div class="col p-3 m-1 bg-light">
+            <div class="row prices mt-5 mb-3 text-center">
 
+                <div class="col m-2 p-3 bg-light">
+                    <i class="far fa-3x p-3 fa-clock"></i>
+                    <h4>{{ $article->price_per_hour }}kr</h4>
+                    <p>/timme</p>
                 </div>
+
+                <div class="col m-2 p-3 bg-light">
+                    <i class="fas fa-3x p-3 fa-calendar-day"></i>
+                    <h4>{{ $article->price_per_day }}kr</h4>
+                    <p>/dag</p>
+                </div>
+
+                <div class="col m-2 p-3 bg-light">
+                    <i class="fas fa-3x p-3 fa-calendar-week"></i>
+                    <h4>{{ $article->price_per_week }}kr</h4>
+                    <p>/vecka</p>
+                </div>
+
             </div> <!--  END .row -->
         </div> <!-- END .article-info -->
     </div> <!-- END .row -->
 
 
-    <div class="row justify-content-center">
-        <div class="description col-10">
-            <p class="mt-4">Beskrivning</p>
-            <p>{{ $article->desc }}</p>
-        </div>
-    </div> <!-- END .row -->
+
 
     <hr>
 
     <div class="container">
     <h1 class="text-center">Skicka förfrågan</h1>
         <div class="row justify-content-center">
-            <form class="col-md-9">
-
+            <form method="POST" action="/articles" class="col-md-9">
+                @csrf
                 <div class="row">
-                    <div class="col">
-                        <label for="exampleFormControlInput1">Förnamn</label>
-                        <input type="text" class="form-control" placeholder="First name">
-                    </div>
-                    <div class="col">
-                        <label for="exampleFormControlInput1">Efternamn</label>
-                        <input type="text" class="form-control" placeholder="Last name">
+                    <div class="col-6 m-1">
+                        <label for="name">Namn</label>
+                        <input type="text" name="name" class="form-control" required>
                     </div>
                 </div> <!-- END .row -->
 
                 <div class="row">
-                    <div class="col">
-                        <label for="exampleFormControlInput1">E-post</label>
-                        <input type="email" class="form-control" placeholder="example@google.se">
+                    <div class="col m-1">
+                        <label for="adress">Address</label>
+                        <input type="text" name="adress" class="form-control" placeholder="">
                     </div>
-                    <div class="col">
-                        <label for="exampleFormControlInput1">Address</label>
-                        <input type="text" class="form-control" placeholder="Last name">
+                    <div class="col m-1">
+                        <label for="city">Stad</label>
+                        <input type="text" name="city" class="form-control" placeholder="">
                     </div>
                 </div> <!-- END .row -->
 
-                <div class="form-group">
+                <div class="row">
+                    <div class="col m-1">
+                        <label for="phone">Telefon</label>
+                        <input type="phone" name="phone" class="form-control" placeholder="">
+                    </div>
+                    <div class="col m-1">
+                        <label for="email">E-post</label>
+                        <input type="email" name="email" class="form-control" placeholder="exempel@google.se"required>
+                    </div>
+                </div> <!-- END .row -->
+
+                <div class="row">
+                    <div class="col m-1">
+                        <label>Jag vill hyra per: </label>
+                            <select class="form-control">
+                                <option>Timme</option>
+                                <option>Dag</option>
+                                <option>Vecka</option>
+                            </select>
+                    </div>
+                </div> <!-- END .row -->
+
+                <div class="form-group m-1">
                     <label for="exampleFormControlTextarea1">Meddelande</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" rows="3" required></textarea>
                     <button type="submit" class="btn btn-warning mt-4">Skicka</button>
                 </div>
             </form>
@@ -78,14 +118,17 @@
 
 </div>  <!-- END "main" .container -->
 
+<form method="POST" action="/articles">
 
+@csrf
 
 
 @endsection
 
 <style>
-
-
+.description p{
+    margin:0;
+}
 @media (max-width: 764px) {
     .article-info{
         text-align: center;
