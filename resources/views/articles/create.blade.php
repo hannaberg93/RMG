@@ -7,8 +7,6 @@
 
         @include('partials/validation_errors')
 
-        @include('partials/validation_errors')
-
         <form method="POST" action="/articles">
 
             @csrf
