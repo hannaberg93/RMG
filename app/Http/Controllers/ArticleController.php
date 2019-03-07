@@ -61,9 +61,7 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        $article = Article::find($id);
-
-        return view('articles/show', ['article' => $article]);
+        //
     }
 
     /**
@@ -74,7 +72,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        return view ('articles/edit', ['article' => $article]);
+        //
     }
 
     /**
@@ -86,15 +84,7 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        $article->title = $request->title;
-        $article->desc = $request->desc;
-        $article->price_per_hour = $request->price_per_hour;
-        $article->price_per_day = $request->price_per_day;
-        $article->price_per_week = $request->price_per_week;
-
-        $article->save();
-
-        return redirect('/articles/' . $article->id);
+        //
     }
 
     /**
@@ -105,8 +95,6 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        $article->delete();
-
-        return redirect('/articles');
+        //
     }
 }
