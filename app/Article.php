@@ -10,10 +10,13 @@ class Article extends Model
 {
     protected $fillable = ['title', 'desc'];
 
-    public function categories(){
-        return $this->belongsToMany(Category::class);
+    public function category(){
+        return $this->belongsTo(Category::class);
     }
     public function user(){
         return $this->belongsTo(User::class);
+    }
+    public function location(){
+        return $this->belongsTo(Location::class);
     }
 }
