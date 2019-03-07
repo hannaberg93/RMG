@@ -15,7 +15,7 @@
                            {{ $article->title }}</h5>
                         <p>{{ \Carbon\Carbon::parse($article->created_at)->format('d F, Y H:i') }}</p>
                         <p><i class="fas fa-map-marker-alt p-1"></i>{{ $article->city }}</p>
-                        <p style="color:green;" class="m-2">{{ $article->price_per_day }} kr/dag</p>
+                        <p style="color:green;" class="m-2">{{ number_format($article->price_per_day,0, ',', ' ') }} kr/dag</p>
                     </div> <!-- END .article-short-info -->
                 </div> <!-- END .article -->
 

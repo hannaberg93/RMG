@@ -36,19 +36,19 @@
 
                 <div class="col m-2 p-3 bg-light">
                     <i class="far fa-3x p-3 fa-clock"></i>
-                    <h4>{{ $article->price_per_hour }}kr</h4>
+                    <h4>{{ number_format($article->price_per_hour ,0, ',', ' ') }}kr</h4>
                     <p>/timme</p>
                 </div>
 
                 <div class="col m-2 p-3 bg-light">
                     <i class="fas fa-3x p-3 fa-calendar-day"></i>
-                    <h4>{{ $article->price_per_day }}kr</h4>
+                    <h4>{{ number_format($article->price_per_day,0, ',', ' ') }}kr</h4>
                     <p>/dag</p>
                 </div>
 
                 <div class="col m-2 p-3 bg-light">
                     <i class="fas fa-3x p-3 fa-calendar-week"></i>
-                    <h4>{{ $article->price_per_week }}kr</h4>
+                    <h4>{{ number_format($article->price_per_week,0, ',', ' ') }}kr</h4>
                     <p>/vecka</p>
                 </div>
 
