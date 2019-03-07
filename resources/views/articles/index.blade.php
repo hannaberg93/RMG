@@ -14,7 +14,7 @@
                         <h4 class="mb-3" style="text-transform: uppercase; font-weight: 300;">
                            {{ $article->title }}</h4>
                         <p>{{ $article->created_at }}</p>
-                        <p><i class="fas fa-map-marker-alt p-1"></i>{{ $article->location_id }}</p>
+                        <p><i class="fas fa-map-marker-alt p-1"></i>{{ $article->city }}</p>
                         <p style="color:green;" class="m-2">{{ $article->price_per_day }} kr/dag</p>
                     </div> <!-- END .article-short-info -->
                 </div> <!-- END .article -->

@@ -21,7 +21,8 @@ class CreateArticlesTable extends Migration
             $table->string('price_per_day');
             $table->string('price_per_week');
             $table->bigInteger('user_id')->unsigned();
-            $table->bigInteger('location_id');
+            $table->string('city');
+            $table->bigInteger('category_id');
             $table->text('images_url');
             $table->timestamps();
         });
