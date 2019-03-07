@@ -16,9 +16,6 @@
                     <a class="nav-link" href="/locations">Sök</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/articles">Artiklar</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="/">Logga in/registrera</a>
                 </li>
                 <li class="nav-item">
