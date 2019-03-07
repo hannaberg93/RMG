@@ -15,6 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::resource('/articles', 'ArticleController');
 Route::resource('/locations', 'LocationController');
-
+Route::resource('/articles', 'ArticleController');

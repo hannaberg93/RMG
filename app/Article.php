@@ -8,6 +8,8 @@ use App\User;
 
 class Article extends Model
 {
+    protected $fillable = ['title', 'desc'];
+
     public function categories(){
         return $this->belongsToMany(Category::class);
     }
