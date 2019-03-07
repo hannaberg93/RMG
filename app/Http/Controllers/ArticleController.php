@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+	protected $valid_rules = [
+		'title' => 'required|min:5',
+		'description' => 'required|min:10',
+	];
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +19,8 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all();
-        return view('articles/index', ['articles' => $articles]);
+        //$location = $articles->location;
+        return view('articles/index', ['articles' => $articles/*, 'location' => $location*/]);
     }
 
     /**
@@ -47,9 +52,9 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        $location = $article->location;
-
-        return view('/articles/show', ['article' => $article, 'location' => $location]);
+        //$category = $article->category;
+       // $location = $article->location;
+        return view('/articles/show', ['article' => $article]);
     }
 
     /**
@@ -72,9 +77,17 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
+        /*
+        $validData = $request->validate($this->validation_rules);
+
+		$project->title = $validData['title'];
+		$project->description = $validData['description'];
+        $project->save();
+        */
         $article->update(request(['title', 'desc']));
 
-        return view('/articles.edit', ['article' => $article]);
+        return redirect('/articles/' . $article->id . '/edit')->with('status', 'updated!');
+
     }
 
     /**
@@ -86,6 +99,6 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         $article->delete();
-        return redirect('/articles');
+        return redirect('/articles')->with('status', 'Artikeln raderad!');
     }
 }

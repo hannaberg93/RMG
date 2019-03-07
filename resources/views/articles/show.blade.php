@@ -16,9 +16,8 @@
             <p class="mt-0">{{ $article->created_at }}</p>
             <h2>{{ $article->title }}</h2>
             <hr>
-            <span class="badge badge-secondary p-2"><i class="fas fa-map-marker-alt"></i> Område</span>
-            <span class="badge badge-secondary p-2">Kategori</span>
-            <span class="badge badge-secondary p-2">Under-kategori</span>
+            <span class="badge badge-secondary p-2"><i class="fas fa-map-marker-alt"></i>{{ $article->city }}</span>
+            <span clqass="badge badge-secondary p-2">{{ $article->category->name }}</span>
 
             <hr>
 
