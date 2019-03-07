@@ -5,8 +5,6 @@
 
         <h1>Skapa en artikel</h1>
 
-        @include('partials/status')
-
         @include('partials/validation_errors')
 
         <form method="POST" action="/articles">
