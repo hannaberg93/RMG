@@ -21,10 +21,7 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all();
-<<<<<<< HEAD
 
-=======
->>>>>>> hannas
         return view('articles/index', ['articles' => $articles]);
     }
 
@@ -70,7 +67,7 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Article $article)
     {
         $location = $article->location;
 
