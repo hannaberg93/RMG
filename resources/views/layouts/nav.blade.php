@@ -10,15 +10,16 @@
             <ul class="navbar-nav ml-auto">
 
 
-                {{--  <li class="nav-item">
+                 <li class="nav-item">
                     <a class="nav-link" href="/">Welcome</a>
-                </li>  --}}
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/locations">Sök</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/contact">Kontakt</a>
                 <li class="nav-item">
+
                     <a class="nav-link" href="/login">logga in</a>
                 </li>
                 <li class="nav-item">
