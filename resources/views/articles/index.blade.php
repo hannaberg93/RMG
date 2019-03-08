@@ -8,7 +8,7 @@
         <h1 class="mb-4">Kategorier</h1>
         <div class="container text-center">
             @foreach($categorys as $category)
-                <span class="badge badge-secondary p-2"> {{ $category->name }}</span>
+                <span class="badge badge-secondary p-2 m-1"> {{ $category->name }}</span>
             @endforeach
         </div>
     </div> <!-- END .row -->
@@ -43,7 +43,7 @@
 <style>
 .article {
     min-width: 200px;
-    min-height: 450px;
+    min-height: 480px;
     max-width: 280px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
     font-size: 16px;
