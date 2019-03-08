@@ -16,5 +16,8 @@ Route::get('/', function () {
 });
 
 
-Route::resource('/locations', 'LocationController');
+Route::resource('/locations', 'ArticleController');
+
+Route::get('/contact-us', 'ContactUSController@contactUS');
+Route::post('contact-us', ['as'=>'contactus.store','uses'=>'ContactUSController@contactUSPost']);
 
