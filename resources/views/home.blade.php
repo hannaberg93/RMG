@@ -20,27 +20,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card mt-3 col-12">
-
                 <p>Välkommen {{ Auth::user()->name }}. Du är inloggad!<hr></p>
                 <p>Mina sidor</p>
 
-                <p>Alla mina artikler:</p>
-
-                <p>Uthyrda artikler: </p>
-
-                <p>Bokningsförfrågningar</p>
-
-                <p>Artiklar som jag hyr:</p>
-                {{-- <ul>
-                    {{ Auth::user()->name}}s Artikler
-                    @foreach($articles as $article)
-                    <li>
-                        <a href="/articles{{ $article->id }}">
-                                {{ $article->title }}</a>
-                    </li>
-                    @endforeach
-
-                </ul> --}}
+                <p>Mina bokningsförfrågningar:</p>
 
                 <button type="button" class="btn btn-success col-6" a href="/rent">Hyra ut en artikel</button>
 

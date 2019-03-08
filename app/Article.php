@@ -8,10 +8,15 @@ use App\User;
 
 class Article extends Model
 {
-    public function categories(){
-        return $this->belongsToMany(Category::class);
+    protected $fillable = ['title', 'desc'];
+
+    public function category(){
+        return $this->belongsTo(Category::class);
     }
     public function user(){
         return $this->belongsTo(User::class);
+    }
+    public function location(){
+        return $this->belongsTo(Location::class);
     }
 }
