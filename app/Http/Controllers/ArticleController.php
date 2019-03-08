@@ -49,7 +49,6 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-
         $validData = $request->validate($this->validation_rules);
 
         $article = new Article();
@@ -60,6 +59,9 @@ class ArticleController extends Controller
         $article->price_per_day = $request->price_per_day;
         $article->price_per_week = $request->price_per_week;
         $article->images_url = $request->images_url;
+        $article->user_id = Auth::user()->id;
+
+        //dd($article->user_id);
 
         $article->save();
 
@@ -75,6 +77,9 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
+
+        
+
         //$category = $article->category;
        // $location = $article->location;
         return view('/articles/show', ['article' => $article]);
