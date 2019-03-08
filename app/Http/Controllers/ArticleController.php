@@ -2,16 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Article;
+use App\Category;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
 
-    protected $validation_rules = [
-        'title' => 'required|min:3',
+	protected $validation_rules = [
+		'title' => 'required|min:5',
         'desc' => 'required|min:5',
-    ];
+        'price_per_hour' => 'required|min:1',
+        'price_per_day' => 'required|min:1',
+        'price_per_week' => 'required|min:1',
+	];
 
     /**
      * Display a listing of the resource.
@@ -21,8 +26,9 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all();
+        $categorys = Category::all();
 
-        return view('articles/index', ['articles' => $articles]);
+        return view('articles/index', ['articles' => $articles, 'categorys' => $categorys]);
     }
 
     /**
@@ -43,7 +49,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $validData = $request->validate($this->validation_rules);
 
         $article = new Article();
@@ -58,7 +64,7 @@ class ArticleController extends Controller
         $article->save();
 
         return redirect('/articles/' . $article->id)->with('status', 'Artikeln skapades');;
-        
+
     }
 
     /**
@@ -82,7 +88,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        return view('/articles.edit', ['article' => $article]);
+        return view('/articles/edit', ['article' => $article]);
     }
 
     /**
@@ -94,16 +100,16 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        /*
         $validData = $request->validate($this->validation_rules);
 
-		$project->title = $validData['title'];
-		$project->description = $validData['description'];
-        $project->save();
-        */
-        $article->update(request(['title', 'desc']));
+		$article->title = $validData['title'];
+        $article->desc = $validData['desc'];
+        $article->price_per_hour = $validData['price_per_hour'];
+        $article->price_per_day = $validData['price_per_day'];
+        $article->price_per_week = $validData['price_per_week'];
+		$article->save();
 
-        return redirect('/articles/' . $article->id . '/edit')->with('status', 'updated!');
+		return redirect('/articles/' . $article->id . '/edit')->with('status', 'Artikeln är uppdaterad!');
 
     }
 
