@@ -63,9 +63,8 @@ class ArticleController extends Controller
 
         $article->save();
 
-        return redirect('/articles/' . $article->id)->with('status', 'Artikeln skapades');;
-
-
+        return redirect('/articles/' . $article->id)->with('status', 'Artikeln skapades');
+        
     }
 
     /**
