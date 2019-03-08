@@ -63,13 +63,9 @@ class ArticleController extends Controller
 
         $article->save();
 
-<<<<<<< Updated upstream
         return redirect('/articles/' . $article->id)->with('status', 'Artikeln skapades');;
 
-=======
-        return redirect('/articles/' . $article->id)->with('status', 'Artikeln skapades');
-        
->>>>>>> Stashed changes
+
     }
 
     /**
