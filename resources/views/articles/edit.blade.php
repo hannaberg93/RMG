@@ -5,13 +5,13 @@
 
 <div class="container mt-4">
 <h1 class="text-center mb-4">Redigera artikel</h1>
-    @include('partials/validation_errors')
-    @include('partials/status')
         <div class="row justify-content-center">
             <form method="POST" action="/articles/{{ $article->id }}" class="col-md-9">
-                @method('PUT')
+                @method('PATCH')
                 @csrf
-
+                <!-- error & status meddelande -->
+                @include('partials/validation_errors')
+                @include('partials/status')
 
                 <div class="row">
                     <div class="col">

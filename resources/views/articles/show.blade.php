@@ -64,8 +64,13 @@
     <div class="container">
     <h1 class="text-center">Skicka förfrågan</h1>
         <div class="row justify-content-center">
-            <form method="POST" action="/articles" class="col-md-9">
+            <form method="POST" action="/articles/{{ $article->id }}" class="col-md-9">
+                @method('PATCH')
                 @csrf
+                <!-- error & status meddelande -->
+                @include('partials/validation_errors')
+                @include('partials/status')
+
                 <div class="row">
                     <div class="col-6 m-1">
                         <label for="name">Namn</label>
@@ -76,22 +81,22 @@
                 <div class="row">
                     <div class="col m-1">
                         <label for="adress">Address</label>
-                        <input type="text" name="adress" class="form-control" placeholder="">
+                        <input type="text" name="adress" class="form-control">
                     </div>
                     <div class="col m-1">
                         <label for="city">Stad</label>
-                        <input type="text" name="city" class="form-control" placeholder="">
+                        <input type="text" name="city" class="form-control" required>
                     </div>
                 </div> <!-- END .row -->
 
                 <div class="row">
                     <div class="col m-1">
                         <label for="phone">Telefon</label>
-                        <input type="phone" name="phone" class="form-control" placeholder="">
+                        <input type="phone" name="phone" class="form-control" placeholder="" required>
                     </div>
                     <div class="col m-1">
                         <label for="email">E-post</label>
-                        <input type="email" name="email" class="form-control" placeholder="exempel@google.se"required>
+                        <input type="email" name="email" class="form-control" required>
                     </div>
                 </div> <!-- END .row -->
 
@@ -107,8 +112,8 @@
                 </div> <!-- END .row -->
 
                 <div class="form-group m-1">
-                    <label for="exampleFormControlTextarea1">Meddelande</label>
-                    <textarea class="form-control" rows="3" required></textarea>
+                    <label for="message">Meddelande</label>
+                    <textarea class="form-control" rows="3" name ="message" required></textarea>
                     <button type="submit" class="btn btn-warning mt-4">Skicka</button>
                 </div>
             </form>
