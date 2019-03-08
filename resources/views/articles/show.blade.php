@@ -101,13 +101,13 @@
                 </div> <!-- END .row -->
 
                 <div class="row">
-                    <div class="col m-1">
-                        <label>Jag vill hyra per: </label>
-                            <select class="form-control">
-                                <option>Timme</option>
-                                <option>Dag</option>
-                                <option>Vecka</option>
-                            </select>
+                    <div class="col">
+                        <label for="date_start">Från</label>
+                        <input type="date" name="date_start" class="form-control" placeholder="" required>
+                    </div>
+                    <div class="col">
+                        <label for="date_end">Till</label>
+                        <input type="date" name="date_end" class="form-control" placeholder="" required>
                     </div>
                 </div> <!-- END .row -->
 

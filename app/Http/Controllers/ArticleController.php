@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Article;
+use App\Category;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -25,8 +26,9 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all();
+        $categorys = Category::all();
 
-        return view('articles/index', ['articles' => $articles]);
+        return view('articles/index', ['articles' => $articles, 'categorys' => $categorys]);
     }
 
     /**

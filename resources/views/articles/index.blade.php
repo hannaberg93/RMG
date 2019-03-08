@@ -5,6 +5,20 @@
 
 <div class="container mt-5 mb-5">
     <div class="row justify-content-center">
+        <h1 class="mb-4">Kategorier</h1>
+        <div class="container text-center">
+            @foreach($categorys as $category)
+                <span class="badge badge-secondary p-2"> {{ $category->name }}</span>
+            @endforeach
+        </div>
+    </div> <!-- END .row -->
+</div> <!-- END .container -->
+
+
+
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
         @foreach($articles as $article)
             <a href="/articles/{{ $article->id }}" style="text-decoration:none; color:black;">
 
