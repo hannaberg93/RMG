@@ -38,6 +38,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
+
         return view('articles/create');
     }
 
@@ -66,7 +67,7 @@ class ArticleController extends Controller
         $article->save();
 
         return redirect('/articles/' . $article->id)->with('status', 'Artikeln skapades');
-        
+
     }
 
     /**
@@ -78,7 +79,7 @@ class ArticleController extends Controller
     public function show(Article $article)
     {
 
-        
+
 
         //$category = $article->category;
        // $location = $article->location;
