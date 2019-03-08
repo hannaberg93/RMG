@@ -10,7 +10,7 @@
     <div class="row justify-content-center">
         <div class="col-md-5 mb-4">
             <img src="{{ $article->images_url }}" class="img-fluid mx-auto d-block"  style="height:400px; width:400px;">
-            <button class="btn btn-warning m-3 mx-auto d-block"><a style="text-decoration:none; color:black;" href="/articles/{{$article->id}}/edit">Redigera/Ta bort artikel</a></button>
+
         </div>
     </div> <!-- END .row -->
 
