@@ -19,10 +19,13 @@
                     <a class="nav-link" href="/articles">Artiklar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Logga in/registrera</a>
+                    <a class="nav-link" href="/login">Logga in</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Mina sidor</a>
+                    <a class="nav-link" href="/register">Registrera</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/home">Mina sidor</a>
                 </li>
 
             </ul>
