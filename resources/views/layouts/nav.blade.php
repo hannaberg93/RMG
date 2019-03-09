@@ -9,9 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Hem</a>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="/locations">Sök</a>
                 </li>
@@ -19,7 +17,10 @@
                     <a class="nav-link" href="/articles">Artiklar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Logga in/registrera</a>
+                    <a class="nav-link" href="/login">Logga in</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Registrera</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/">Mina sidor</a>
