@@ -2,8 +2,6 @@
 
 @section('content')
 
-
-
 <div class="container main-article-container mt-5">
 
 
@@ -20,7 +18,8 @@
 
             <h2 class="mt-1 mb-2">{{ $article->title }}</h2>
             <p class="mb-0">Upplagd av {{ $article->user->name }}</p>
-            <p class="mt-0">{{ \Carbon\Carbon::parse($article->created_at)->format('d F, Y H:i') }}</p>
+            <p class="mt-0">{{ $date->isoFormat('LLL') }}</p>
+
             <i class="fas fa-phone m-0"></i> {{ $article->user->phone }}
             <hr>
             <span class="badge badge-secondary p-2"><i class="fas fa-map-marker-alt"></i> Stad: {{ $article->city }}</span>
@@ -122,11 +121,6 @@
 
 
 </div>  <!-- END "main" .container -->
-
-<form method="POST" action="/articles">
-
-@csrf
-
 
 @endsection
 

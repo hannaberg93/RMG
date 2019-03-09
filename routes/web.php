@@ -14,15 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
  });
- 
- 
- 
+
+
+
  Route::resource('/articles', 'ArticleController');
- Route::resource('/articles', 'ArticleController');
- 
- 
+
+
+
  Auth::routes();
- 
+
  Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/contact-us', 'ContactUSController@contactUS');
