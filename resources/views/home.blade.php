@@ -20,12 +20,31 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card mt-3 col-12">
-                <p>Välkommen {{ Auth::user()->name }}. Du är inloggad!<hr></p>
-                <p>Mina sidor</p>
+                <h4>Välkommen {{ Auth::user()->name }}<br></h4><p> Du är inloggad!</p><hr>
+                <h5>Mina sidor</h5>
 
-                <p>Mina bokningsförfrågningar:</p>
+                {{-- <ul>
+                @foreach($articles as $article)
+                    <li>
+                        <a href="/articles/{{ $articles->id }}">
 
-                <button type="button" class="btn btn-success col-6" a href="/rent">Hyra ut en artikel</button>
+                            {{ $articles->title }}
+                        </a>
+                    </li>
+                @endforeach
+
+
+                </ul> --}}
+
+
+
+                <p>Uthyrda artiklar:</p>
+
+                <p>Bokningsförfrågningar:</p>
+
+                <p>Artikler som jag hyr:</p>
+
+                <button type="button" class="btn btn-success col-3"><a href="/articles/create">Hyra ut en artikel</a></button>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -45,4 +64,11 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+
+<style>
+
+    a{
+        color: white;
+    }
+</style>
 @endsection
