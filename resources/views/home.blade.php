@@ -61,7 +61,7 @@
             </div>
 
             <div class="form-group">
-                <label for="images_url">Bild URL</label>
+                <label for="images_url">Bild URL *</label>
                 <input type="text" class="form-control" name="images_url" placeholder="Bild URL" required value="{{ old('images_url') }}">
             </div>
 

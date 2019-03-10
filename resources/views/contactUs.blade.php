@@ -25,8 +25,10 @@
                     <span class="text-danger">{{ $errors->first('message') }}</span>
                 </div>
             <div class="form-group">
-        <button class="btn btn-success">Skicka!</button>
+        <button class="btn btn-warning">Skicka!</button>
     </div>
 {!! Form::close() !!}
 @endsection
+
+
 
