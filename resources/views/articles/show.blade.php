@@ -18,7 +18,7 @@
 
             <h2 class="mt-1 mb-2">{{ $article->title }}</h2>
             <p class="mb-0">Upplagd av {{ $article->user->name }}</p>
-            <p class="mt-0">{{ $date->isoFormat('LLL') }}</p>
+            <p class="mt-0">{{ $article->created_at }}</p>
 
             <i class="fas fa-phone m-0"></i> {{ $article->user->phone }}
             <hr>
@@ -61,63 +61,39 @@
 
     <hr>
 
-    <div class="container">
-    <h1 class="text-center">Skicka förfrågan</h1>
-        <div class="row justify-content-center">
-            <form method="POST" action="/articles/{{ $article->id }}" class="col-md-9">
-                @csrf
-                <!-- error & status meddelande -->
-                @include('partials/validation_errors')
-                @include('partials/status')
+    <!--  Dont let user send request on its own articles  -->
+    @if($article->user_id != auth()->id())
+        <div class="container">
+        <h1 class="text-center">Skicka förfrågan</h1>
+            <div class="row justify-content-center">
+                <form method="POST" action="/articles/{{ $article->id }}" class="col-md-9">
+                    @method('PATCH')
+                    @csrf
 
-                <div class="row">
-                    <div class="col-6 m-1">
-                        <label for="name">Namn</label>
-                        <input type="text" name="name" class="form-control" required placeholder="Användarnamnet på inloggad ska va här??">
-                    </div>
-                </div> <!-- END .row -->
+                    <!-- error & status meddelande -->
+                    @include('partials/validation_errors')
+                    @include('partials/status')
 
-                <div class="row">
-                    <div class="col m-1">
-                        <label for="adress">Address</label>
-                        <input type="text" name="adress" class="form-control" placeholder="Inloggad användares address??">
-                    </div>
-                    <div class="col m-1">
-                        <label for="city">Stad</label>
-                        <input type="text" name="city" class="form-control" required placeholder="Inloggad användares stad ska va här??">
-                    </div>
-                </div> <!-- END .row -->
+                    <div class="row">
+                        <div class="col">
+                            <label for="date_start">Från</label>
+                            <input type="date" name="date_start" class="form-control" placeholder="" required>
+                        </div>
+                        <div class="col">
+                            <label for="date_end">Till</label>
+                            <input type="date" name="date_end" class="form-control" placeholder="" required>
+                        </div>
+                    </div> <!-- END .row -->
 
-                <div class="row">
-                    <div class="col m-1">
-                        <label for="phone">Telefon</label>
-                        <input type="phone" name="phone" class="form-control" required placeholder="Inloggad användares tele-nr ska va här??">
+                    <div class="form-group m-1">
+                        <label for="message">Meddelande</label>
+                        <textarea class="form-control" rows="3" name ="message" placeholder="optional"></textarea>
+                        <button type="submit" class="btn btn-warning mt-4">Skicka</button>
                     </div>
-                    <div class="col m-1">
-                        <label for="email">E-post</label>
-                        <input type="email" name="email" class="form-control" required placeholder="Inloggad användares epost ska va här??">
-                    </div>
-                </div> <!-- END .row -->
-
-                <div class="row">
-                    <div class="col">
-                        <label for="date_start">Från</label>
-                        <input type="date" name="date_start" class="form-control" placeholder="" required>
-                    </div>
-                    <div class="col">
-                        <label for="date_end">Till</label>
-                        <input type="date" name="date_end" class="form-control" placeholder="" required>
-                    </div>
-                </div> <!-- END .row -->
-
-                <div class="form-group m-1">
-                    <label for="message">Meddelande</label>
-                    <textarea class="form-control" rows="3" name ="message" placeholder="optional"></textarea>
-                    <button type="submit" class="btn btn-warning mt-4">Skicka</button>
-                </div>
-            </form>
-        </div>
-    </div> <!-- END .container -->
+                </form>
+            </div>
+        </div> <!-- END .container -->
+    @endif
 
 
 </div>  <!-- END "main" .container -->

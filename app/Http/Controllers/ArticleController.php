@@ -78,8 +78,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        $date = \Carbon\Carbon::parse($article->created_at)->locale('sv');
-        return view('/articles/show', compact(['article', 'date']));
+        return view('/articles/show', compact(['article']));
     }
 
     /**
