@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+Use Auth;
+use App\Article;
+Use App\User;
+Use App\Booking;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +27,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $articles = Article::where('user_id', auth()->id())->get();
+
+        //  bookings = articles->bookings
+
+        $bookings = Booking::where('articles.user_id', auth()->id());
+
+
+        $user = User::all();
+
+        return view('home', compact(['articles', 'bookings', 'user']));
     }
 }
