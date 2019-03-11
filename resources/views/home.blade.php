@@ -8,82 +8,96 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>  --}}
 
-                                <div>
+<div>
 
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
+</div>
                             {{--  </li>  --}}
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card mt-3 col-12">
-                <p>Välkommen {{ Auth::user()->name }}. Du är inloggad!<hr></p>
+            <div class="card mt-3 col-12 p-3 bg-light text-dark">
 
-                <div class="container mt-3">
+                <h4>Välkommen {{ Auth::user()->name }}<br></h4><p> Du är inloggad!</p><hr>
+                <h5>Mina sidor</h5>
 
-        <h1>Skapa en artikel</h1>
+                <h4>Mina artiklar</h4>
 
-        @include('partials/validation_errors')
+                    <div class="container mt-2">
+                            @foreach($articles as $article)
+                            <div class="row ">
+                                <div class="col-md-9">
+                                    <a href="/articles/{{$article->id}}">{{ $article->title }}</a>
+                                </div>
 
-        <form method="POST" action="/articles">
+                                <div class="col-md-2 text-center">
+                                <a href="/articles/{{$article->id}}/edit"><i class="far fa-edit"></i></i></a>
+                                </div>
+                            </div> <!-- END.row -->
+                            @endforeach
+                    </div>
 
-            @csrf
+                    <div class="container mt-5">
+                        <div class="row">
+                            <h4>Inkommande bokningsförfrågningar</h4>
 
-            <div class="form-group">
-                <label for="title">Titel *</label>
-                <input type="text" class="form-control" name="title" placeholder="Titel" required value="{{ old('title') }}">
-            </div>
+                            @foreach($bookings as $booking)
+                                <div class="container mt-2">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <p>Från: {{ $booking->user->name}}</p>
+                                            <p>Artikel:  {{ $booking->article_id }}</p>
+                                        </div>
 
-            <div class="form-group">
-                <label for="desc">Beskrivning *</label>
-                <input type="text" class="form-control" name="desc" placeholder="Beskrivning" required value="{{ old('desc') }}">
-            </div>
+                                        <div class="col-md-2 text-right">
+                                            @if($booking->confirmed == true)
+                                                <span class="badge badge-success" style="min-width:99px;">Godkänd</span>
+                                            @else
+                                                <span class="badge badge-secondary" style="min-width:99px;">Ej godkänd</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
 
-            <div class="form-group">
-                <label for="price_per_hour">Pris per timme *</label>
-                <input type="text" class="form-control" name="price_per_hour" placeholder="Pris per timme" 
-                required value="{{ old('price_per_hour') }}">
-            </div>
 
-            <div class="form-group">
-                <label for="price_per_day">Pris per dag *</label>
-                <input type="text" class="form-control" name="price_per_day" placeholder="Pris per dag"
-                required value="{{ old('price_per_day') }}">
-            </div>
+                        </div>
+                    </div>
 
-            <div class="form-group">
-                <label for="price_per_week">Pris per vecka *</label>
-                <input type="text" class="form-control" name="price_per_week" placeholder="Pris per vecka"
-                required value="{{ old('price_per_week') }}">
-            </div>
+                    <div class="container mt-5">
+                        <div class="row">
+                            <h4>Utgående bokningsförfrågningar</h4>
 
-            <div class="form-group">
-                <label for="images_url">Bild URL *</label>
-                <input type="text" class="form-control" name="images_url" placeholder="Bild URL" required value="{{ old('images_url') }}">
-            </div>
+                            @foreach($bookings as $booking)
+                                <div class="container mt-2">
+                                    <div class="row">
+                                        <div class="col-md-9">
 
-            <label><i>* Obligatoriska</i></label>
+                                            {{ $booking->article_id }}
 
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" name="submit" placeholder="Skicka!">
-            <div>
+                                        </div>
 
-        </form>
+                                        <div class="col-md-2 text-right">
+                                            @if($booking->confirmed == true)
+                                                <span class="badge badge-success" style="min-width:99px;">Godkänd</span>
+                                            @else
+                                                <span class="badge badge-secondary" style="min-width:99px;">Ej godkänd</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
 
-        <a href="/articles">&laquo; Tillbaka</a>
 
-    </div>
+                        </div>
+                    </div>
 
-                <p>Mina sidor</p>
-
-                <p>Mina bokningsförfrågningar:</p>
-
-                <button type="button" class="btn btn-success col-6" a href="/rent">Hyra ut en artikel</button>
 
                 <div class="card-body">
+                <button type class="btn btn-secondary"><a href="/articles/create">Lägg till en artikel</a></button>
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -92,13 +106,16 @@
 
 
                 </div>
+
+                <a  class="btn btn-danger col-2" href="{{ route('logout') }}"
+                                                       onclick="event.preventDefault();
+                                                                     document.getElementById('logout-form').submit();">
+                                                        {{ __('Logout') }}
+                                                    </a>
+
             </div>
         </div>
     </div>
 </div>
-<a  class="btn btn-danger" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+
 @endsection

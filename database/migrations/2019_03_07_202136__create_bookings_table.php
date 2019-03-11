@@ -11,21 +11,20 @@ class CreateBookingsTable extends Migration
     *
     * @return void
     */
-   public function up()
-   {
-       Schema::create('bookings', function (Blueprint $table) {
-           $table->bigIncrements('id');
-           $table->string('name');
-           $table->string('address');
-           $table->string('city');
-           $table->string('phone');
-           $table->string('email');
-           $table->text('message');
-           $table->dateTime('date_start');
-           $table->dateTime('date_end');
-           $table->timestamps();
-       });
-   }
+    public function up()
+    {
+        Schema::create('bookings', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->bigInteger('user_id');
+            $table->bigInteger('article_id');
+            $table->text('message');
+            $table->dateTime('date_start');
+            $table->dateTime('date_end');
+            $table->boolean('confirmed')->default(false);
+            $table->boolean('expired')->default(false);
+            $table->timestamps();
+        });
+    }
 
    /**
     * Reverse the migrations.

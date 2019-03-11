@@ -4,8 +4,10 @@
 
 namespace App\Http\Controllers;
 
-
-
+Use Auth;
+use App\Article;
+Use App\User;
+Use App\Booking;
 use Illuminate\Http\Request;
 
 use App\Post;
@@ -49,9 +51,16 @@ class HomeController extends Controller
     public function index()
 
     {
+        $articles = Article::where('user_id', auth()->id())->get();
 
-        return view('home');
+        //  bookings = articles->bookings
 
+        $bookings = Booking::where('articles.user_id', auth()->id());
+
+
+        $user = User::all();
+
+        return view('home', compact(['articles', 'bookings', 'user']));
     }
 
 
