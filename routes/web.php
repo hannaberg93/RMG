@@ -27,3 +27,7 @@ Route::get('/', function () {
 
 Route::get('/contact-us', 'ContactUSController@contactUS');
 Route::post('contact-us', ['as'=>'contactus.store','uses'=>'ContactUSController@contactUSPost']);
+
+Route::get('posts', 'HomeController@posts')->name('posts');
+Route::post('posts', 'HomeController@postPost')->name('posts.post');
+Route::get('posts/{id}', 'HomeController@show')->name('posts.show');
