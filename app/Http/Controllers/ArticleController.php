@@ -28,6 +28,7 @@ class ArticleController extends Controller
         $articles = Article::all();
         $categorys = Category::all();
 
+
         return view('articles/index', compact(['articles', 'categorys']));
     }
 
@@ -78,7 +79,8 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        return view('/articles/show', compact(['article']));
+        $date = \Carbon\Carbon::parse($article->created_at)->locale('sv');
+        return view('/articles/show', compact(['article', 'date']));
     }
 
     /**
