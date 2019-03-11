@@ -28,7 +28,8 @@ class ArticleController extends Controller
         $articles = Article::all();
         $categorys = Category::all();
 
-        return view('articles/index', ['articles' => $articles, 'categorys' => $categorys]);
+
+        return view('articles/index', compact(['articles', 'categorys']));
     }
 
     /**
@@ -38,6 +39,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
+
         return view('articles/create');
     }
 
@@ -66,7 +68,7 @@ class ArticleController extends Controller
         $article->save();
 
         return redirect('/articles/' . $article->id)->with('status', 'Artikeln skapades');
-        
+
     }
 
     /**
@@ -77,12 +79,8 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-
-        
-
-        //$category = $article->category;
-       // $location = $article->location;
-        return view('/articles/show', ['article' => $article]);
+        $date = \Carbon\Carbon::parse($article->created_at)->locale('sv');
+        return view('/articles/show', compact(['article', 'date']));
     }
 
     /**
@@ -93,7 +91,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        return view('/articles/edit', ['article' => $article]);
+        return view('/articles/edit', compact('article'));
     }
 
     /**
