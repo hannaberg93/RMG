@@ -18,7 +18,7 @@
 
             <h2 class="mt-1 mb-2">{{ $article->title }}</h2>
             <p class="mb-0">Upplagd av {{ $article->user->name }}</p>
-            <p class="mt-0">{{ $date->isoFormat('LLL') }}</p>
+            <p class="mt-0">{{ $article->created_at->isoFormat('LLL') }}</p>
 
             <i class="fas fa-phone m-0"></i> {{ $article->user->phone }}
             <hr>
