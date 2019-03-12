@@ -58,6 +58,15 @@ class BookingController extends Controller
      */
     public function show(Booking $booking)
     {
+        $date = \Carbon\Carbon::parse($booking->created_at)->locale('sv');
+        return view('/bookings/show', compact(['booking', 'date']));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Article  $article
+     * @return \Illuminate\Http\Response
         
     }
 

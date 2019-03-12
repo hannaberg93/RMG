@@ -19,7 +19,7 @@
             <label><i>Välj en kategori *</i></label><br>
             <div class="form-check form-check-inline">
                 @foreach($categorys as $category)
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" required value="{{ $category->id }}">
+                    <input class="form-check-input" type="radio" name="category_id" id="inlineRadio1" required value="{{ $category->id }}">
                     <label class="form-check-label" for="inlineRadio1">{{ $category->name }}</label>
                 @endforeach
             </div>
@@ -28,6 +28,11 @@
             <div class="form-group">
                 <label for="desc">Beskrivning *</label>
                 <input type="text" class="form-control" name="desc" placeholder="Beskrivning" required value="{{ old('desc') }}">
+            </div>
+
+            <div class="form-group">
+                <label for="desc">Artikelns lokalisering *</label>
+                <input type="text" class="form-control" name="city" placeholder="Plats" required value="{{ old('city') }}">
             </div>
 
             <div class="form-group">
