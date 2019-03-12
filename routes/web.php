@@ -18,5 +18,11 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->group( function() {
     Route::resource('/articles', 'ArticleController');
+    Route::resource('/booking', 'BookingController');
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/articles/category/{id}', 'ArticleController@category');
 });
+
+
+
+

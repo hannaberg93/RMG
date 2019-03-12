@@ -18,7 +18,7 @@
 
             <h2 class="mt-1 mb-2">{{ $article->title }}</h2>
             <p class="mb-0">Upplagd av {{ $article->user->name }}</p>
-            <p class="mt-0">{{ $date->isoFormat('LLL') }} }}</p>
+            <p class="mt-0">{{ $date->isoFormat('LLL') }}</p>
 
             <i class="fas fa-phone m-0"></i> {{ $article->user->phone }}
             <hr>
@@ -66,13 +66,20 @@
         <div class="container">
         <h1 class="text-center">Skicka förfrågan</h1>
             <div class="row justify-content-center">
-                <form method="POST" action="/articles/{{ $article->id }}" class="col-md-9">
-                    @method('PATCH')
+                <form method="POST" action="/booking" class="col-md-9">
+                    @method('POST')
                     @csrf
 
                     <!-- error & status meddelande -->
                     @include('partials/validation_errors')
                     @include('partials/status')
+
+                    <input type="hidden" name="article_id" value=" {{ $article->id }}" />
+                    <input type="hidden" name="article_title" value=" {{ $article->title }}" />
+                    <input type="hidden" name="article_price_per_hour" value=" {{ $article->price_per_hour }}" />
+                    <input type="hidden" name="article_price_per_day" value=" {{ $article->price_per_day }}" />
+                    <input type="hidden" name="article_price_per_week" value=" {{ $article->price_per_week }}" />
+                    <input type="hidden" name="article_city" value=" {{ $article->city }}" />
 
                     <div class="row">
                         <div class="col">
