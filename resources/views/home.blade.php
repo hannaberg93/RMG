@@ -48,7 +48,7 @@
 
                 <div class="card-body">
                 <button class="btn btn-secondary col-3.5"><a href="/articles/index">Boka en artikel</a></button>
-                <button type class="btn btn-secondary col-3 mt-10"><a href="/articles/create">Hyra ut en artikel</a></button>
+                <button type class="btn btn-primary col-3 mt-10"><a href="/articles/create">Hyra ut en artikel</a></button>
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
