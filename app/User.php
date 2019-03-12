@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\User;
 use App\Location;
+use App\Booking;
 
 class User extends Authenticatable
 {
@@ -18,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'phone', 'adress', 'city', 'password',
     ];
 
     /**
@@ -40,10 +41,11 @@ class User extends Authenticatable
     ];
 
     public function articles(){
-        return $this->hasMany(User::class);
+        return $this->hasMany(Article::class);
     }
 
-    public function location(){
-        return $this->hasOne(Location::class);
+    public function bookings(){
+        return $this->hasManyThrough(Booking::class, Article::class);
     }
+
 }

@@ -25,10 +25,26 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::all()->sortByDesc("updated_at");
         $categorys = Category::all();
 
-        return view('articles/index', ['articles' => $articles, 'categorys' => $categorys]);
+
+        return view('articles/index', compact(['articles', 'categorys']));
+    }
+
+    /**
+     * Filters the index view by category id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function category($id)
+    {
+        $articles = Article::all()->where('category_id', $id)->sortByDesc("updated_at");;
+        $categorys = Category::all();
+
+
+        return view('articles/index', compact(['articles', 'categorys']));
+        echo $id;die;
     }
 
     /**
@@ -38,7 +54,10 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('articles/create');
+        $articles = Article::all()->sortByDesc("updated_at");;
+        $categorys = Category::all();
+
+        return view('articles/create', compact(['articles', 'categorys']));
     }
 
     /**
@@ -58,15 +77,17 @@ class ArticleController extends Controller
         $article->price_per_hour = $request->price_per_hour;
         $article->price_per_day = $request->price_per_day;
         $article->price_per_week = $request->price_per_week;
+        $article->category_id = $request->category_id;
+        $article->city = $request->city;
         $article->images_url = $request->images_url;
         $article->user_id = Auth::user()->id;
 
-        //dd($article->user_id);
+        //dd($request->all());
 
         $article->save();
 
         return redirect('/articles/' . $article->id)->with('status', 'Artikeln skapades');
-        
+
     }
 
     /**
@@ -77,12 +98,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-
-        
-
-        //$category = $article->category;
-       // $location = $article->location;
-        return view('/articles/show', ['article' => $article]);
+        return view('/articles/show', compact(['article']));
     }
 
     /**
@@ -93,7 +109,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        return view('/articles/edit', ['article' => $article]);
+        return view('/articles/edit', compact('article'));
     }
 
     /**
