@@ -55,7 +55,7 @@ class HomeController extends Controller
 
         //  bookings = articles->bookings
 
-        $bookings = Booking::where('articles.user_id', auth()->id());
+        $bookings = Booking::where('user_id', auth()->id())->get();
 
 
         $user = User::all();
