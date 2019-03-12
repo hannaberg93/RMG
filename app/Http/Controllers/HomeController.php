@@ -81,37 +81,6 @@ class HomeController extends Controller
 
     {
 
-        $post = Post::find($id);
-
-        return view('postsShow',compact('post'));
-
-    }
-
-
-
-    public function postPost(Request $request)
-
-    {
-
-        request()->validate(['rate' => 'required']);
-
-        $post = Post::find($request->id);
-
-
-
-        $rating = new \willvincent\Rateable\Rating;
-
-        $rating->rating = $request->rate;
-
-        $rating->user_id = auth()->user()->id;
-
-
-
-        $post->ratings()->save($rating);
-
-
-
-        return redirect()->route("posts");
 
     }
 

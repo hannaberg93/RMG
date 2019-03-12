@@ -25,7 +25,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::all()->sortByDesc("updated_at");
         $categorys = Category::all();
 
 
@@ -39,7 +39,7 @@ class ArticleController extends Controller
      */
     public function category($id)
     {
-        $articles = Article::all()->where('category_id', $id);
+        $articles = Article::all()->where('category_id', $id)->sortByDesc("updated_at");;
         $categorys = Category::all();
 
 
@@ -54,7 +54,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        $articles = Article::all();
+        $articles = Article::all()->sortByDesc("updated_at");;
         $categorys = Category::all();
 
         return view('articles/create', compact(['articles', 'categorys']));
@@ -82,7 +82,7 @@ class ArticleController extends Controller
         $article->images_url = $request->images_url;
         $article->user_id = Auth::user()->id;
 
-        //dd($article->user_id);
+        //dd($request->all());
 
         $article->save();
 
