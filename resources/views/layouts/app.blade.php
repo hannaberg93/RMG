@@ -14,8 +14,11 @@
 </head>
 <body>
 
-	<!-- include our navigation menu -->
-	@include('layouts/nav')
+    <!-- include our navigation menu -->
+
+    @include('layouts/nav')
+
+
 	<!-- end of our navigation menu -->
 
 	<!-- here the section('content') will be rendered -->

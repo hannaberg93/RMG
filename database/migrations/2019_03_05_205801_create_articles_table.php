@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArticleCategoryTable extends Migration
+class CreateArticlesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,17 @@ class CreateArticleCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('article_category', function (Blueprint $table) {
+        Schema::create('articles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('article_id');
+            $table->string('title');
+            $table->text('desc');
+            $table->string('price_per_hour');
+            $table->string('price_per_day');
+            $table->string('price_per_week');
+            $table->bigInteger('user_id')->unsigned();
+            $table->string('city');
             $table->bigInteger('category_id');
+            $table->text('images_url');
             $table->timestamps();
         });
     }
