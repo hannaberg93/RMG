@@ -7,7 +7,11 @@
         <h1 class="mb-4">Kategorier</h1>
         <div class="container text-center">
             @foreach($categorys as $category)
-                <span class="badge badge-secondary p-2 m-1"> {{ $category->name }}</span>
+                <span class="badge badge-secondary p-2 m-1">
+                    <a href="/articles/category/{{ $category->id }}">
+                        {{ $category->name }}
+                    </a>
+                </span>
             @endforeach
         </div>
     </div> <!-- END .row -->
@@ -62,5 +66,13 @@
 .article:hover{
     -webkit-transform: translateY(-5px);
     transform: translateY(-5px);
+}
+
+body > div > div > div > span > a{
+    color:white;
+}
+
+body > div > div > div > span > a:hover{
+    color:black;
 }
 </style>
