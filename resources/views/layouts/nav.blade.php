@@ -23,7 +23,7 @@
                     <a class="nav-link" href="/register">Registrera</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Mina sidor</a>
+                    <a class="nav-link" href="/home">Mina sidor</a>
                 </li>
 
             </ul>
