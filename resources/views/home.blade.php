@@ -42,50 +42,28 @@
                     <div class="container mt-5">
                         <h4>Inkommande bokningsförfrågningar</h4>
                             @foreach($bookings as $booking)
-                                <div class="row">
-                                    <div class="container mt-2">
-                                        <div class="row">
-                                            <div class="col-md-9">
-                                                <p>Från: {{ $booking->user->name}}</p>
-                                                <p>Artikel:  {{ $booking->article_id }}</p>
-                                            </div>
-
-                                            <div class="col-md-2 text-right">
-                                                @if($booking->confirmed == true)
-                                                    <span class="badge badge-success" style="min-width:99px;">Godkänd</span>
-                                                @else
-                                                    <span class="badge badge-secondary" style="min-width:99px;">Ej godkänd</span>
-                                                @endif
-                                            </div>
+                                <div class="container mt-2">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <p>Användare: {{ $booking->user->name}}</p>
+                                            <p>Artikel:  {{ $booking->article->title }}</p>
+                                            <p>Från:  {{ $booking->date_start->isoFormat('LLL') }}<br>
+                                            Till: {{ $booking->date_end->isoFormat('LLL') }}</p>
                                         </div>
+
                                     </div>
                                 </div>
                             @endforeach
                     </div>
 
                     <div class="container mt-5">
-                        <h4>Utgående bokningsförfrågningar</h4>
-                            @foreach($bookings as $booking)
-                                <div class="row">
-                                    <div class="container mt-2">
-                                        <div class="row">
-                                            <div class="col-md-9">
+                        <div class="row">
+                            <h4>Utgående bokningsförfrågningar</h4>
 
-                                                {{ $booking->article_id }}
 
-                                            </div>
 
-                                            <div class="col-md-2 text-right">
-                                                @if($booking->confirmed == true)
-                                                    <span class="badge badge-success" style="min-width:99px;">Godkänd</span>
-                                                @else
-                                                    <span class="badge badge-secondary" style="min-width:99px;">Ej godkänd</span>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
+
+                        </div>
                     </div>
 
 
