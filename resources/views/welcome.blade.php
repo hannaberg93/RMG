@@ -75,7 +75,7 @@
 
           <div class="bild-karusell mt-3 mb-3">
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner h-500px">
+        <div class="carousel-inner">
           <div class="carousel-item active">
             <img class="d-block w-100" src="https://ya-webdesign.com/images/transparent-electronics-home-2.png" alt="First slide">
 
@@ -98,24 +98,15 @@
       </div>
     </div>
 
-   <!-- <div class="view" style="background-image: url('https://www.dmcgroup.eu/wp-content/uploads/2017/12/notebook-2386034-1.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-      <div class="col-7 trending-words m-2 p-2">
-
-        <h1 class="bg-light text-secondary p-2">Populära kategorier</h1>
-
-        <button type="button" class="btn btn-light btn-sm m-2">Secondary</button>
-        <button type="button" class="btn btn-light btn-sm m-2">Secondary</button>
-        <button type="button" class="btn btn-light btn-sm m-2">Secondary</button>
-        <button type="button" class="btn btn-light btn-sm m-2">Secondary</button>
-        <button type="button" class="btn btn-light btn-sm m-2">Secondary</button>
-        <button type="button" class="btn btn-light btn-sm m-2">Secondary</button>
-        <button type="button" class="btn btn-light btn-sm m-2">Secondary</button>
-      </div>
-    </div>-->
+  <style>
+  .carousel-item {
+  height: 500px;
+  }
+  </style>
 
 
 
-</div>
+
 
 
 @endsection
