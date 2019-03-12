@@ -71,26 +71,24 @@
                         <div class="row">
                             <h4>Utgående bokningsförfrågningar</h4>
 
-                            @foreach($bookings as $booking)
-                                <div class="container mt-2">
-                                    <div class="row">
-                                        <div class="col-md-9">
+                        @foreach ($bookings as $sentBooking)
+                        @if ($sentBooking->user_id == Auth::user()->id)
 
-                                            {{ $booking->article_id }}
+                            <p>User id: {{ $sentBooking->user_id }}</p>
+                            <p>Auth user id: {{ Auth::user()->id }}</p>
 
-                                        </div>
+                            <h2>Titel: {{ $sentBooking->article->title }}</h2>
+                            <ul>
+                                <li>Beskrivning: {{ $sentBooking->article->desc }}</li>
+                                <li>Pris per timme: {{ $sentBooking->article->price_per_hour }}</li>
+                                <li>Pris per dag: {{ $sentBooking->article->price_per_day }}</li>
+                                <li>Pris per vecka: {{ $sentBooking->article->price_per_week }}</li>
+                                <li>Kategori: {{ $sentBooking->article->category->name }}</li>
+                                <li>Plats: {{ $sentBooking->article->city }}</li>
+                            </ul>
 
-                                        <div class="col-md-2 text-right">
-                                            @if($booking->confirmed == true)
-                                                <span class="badge badge-success" style="min-width:99px;">Godkänd</span>
-                                            @else
-                                                <span class="badge badge-secondary" style="min-width:99px;">Ej godkänd</span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </div>
-                                @endforeach
-
+                        @endif
+                        @endforeach
 
                         </div>
                     </div>
