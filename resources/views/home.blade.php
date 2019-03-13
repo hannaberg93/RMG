@@ -22,7 +22,7 @@
             <div class="card mt-3 col-12 p-3 bg-light text-dark">
 
                 <h4>Välkommen {{ Auth::user()->name }}<br></h4><p> Du är inloggad!</p><hr>
-                
+
 
                     <div class="container mt-2">
                         <h4>Mina artiklar</h4>
@@ -49,6 +49,7 @@
                                             <p>Artikel:  {{ $booking->article->title }}</p>
                                             <p>Från:  {{ $booking->date_start->isoFormat('LLL') }}<br>
                                             Till: {{ $booking->date_end->isoFormat('LLL') }}</p>
+                                            <hr>
                                         </div>
 
                                     </div>
@@ -60,8 +61,22 @@
                         <div class="row">
                             <h4>Utgående bokningsförfrågningar</h4>
 
+                        @foreach ($sentBookings as $booking)
+                        @if ($booking->user_id == Auth::user()->id)
 
 
+                            <h2>Titel: {{ $booking->article->title }}</h2>
+                            <ul>
+
+                                <li>Pris per timme: {{ $booking->article->price_per_hour }}</li>
+                                <li>Pris per dag: {{ $booking->article->price_per_day }}</li>
+                                <li>Pris per vecka: {{ $booking->article->price_per_week }}</li>
+                                <li>Kategori: {{ $booking->article->category->name }}</li>
+                                <li>Plats: {{ $booking->article->city }}</li>
+                            </ul>
+
+                        @endif
+                        @endforeach
 
                         </div>
                     </div>
@@ -105,5 +120,5 @@
         border: 1px solid black;
     }
 
-  
+
 </style>
