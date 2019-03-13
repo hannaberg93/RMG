@@ -42,6 +42,11 @@
                     <textarea type="text" name="desc" class="form-control" rows="4" required>{{ old('desc') ? old('desc') : $article->desc }}</textarea>
                 </div>
 
+                <div class="form-group mt-3">
+                    <label for="desc">City</label>
+                    <input type="text" name="desc" class="form-control" required>{{ old('city') ? old('city') : $article->city }}</input>
+                </div>
+
 
                 <button type="submit" class="btn btn-warning mt-4">Spara ändringar</button>
 
