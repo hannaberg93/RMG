@@ -53,3 +53,11 @@
                 </div>
             </div>
         </nav>
+
+        <style>
+
+        .navbar-laravel{
+            background-color: white;
+        }
+
+        </style>

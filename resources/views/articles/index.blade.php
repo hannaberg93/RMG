@@ -63,6 +63,10 @@
     margin: 1px;
 }
 
+h1 {
+    color: cadetblue !important;
+}
+
 .article:hover{
     -webkit-transform: translateY(-5px);
     transform: translateY(-5px);
@@ -75,4 +79,8 @@ body > div > div > div > span > a{
 body > div > div > div > span > a:hover{
     color:black;
 }
+
+
+
+
 </style>

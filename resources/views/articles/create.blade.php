@@ -60,18 +60,39 @@
 
             <label><i>* Obligatoriska</i></label>
 
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" name="submit" placeholder="Skicka!">
+            <div class="form-group m-2">
+                <input type="submit" class="btn btn-lol text-white" name="submit" placeholder="Skicka!">
             <div>
 
         </form>
-
+        <div class="go-back my-4">
         <a href="/articles">&laquo; Tillbaka</a>
+        </div>
 
     </div>
 @endsection
 
 <style>
+
+label {
+    font-weight: bold;
+}
+
+h1{
+    color:cadetblue;
+}
+
+.btn-lol, .btn-lolhover, .btn-lol:active, .btn-lol:visited {
+    background-color: cadetblue !important;
+
+
+}
+
+
+.go-back a{
+    color: gray;
+    font-size: 1.5em;
+}
     body > div > form > div > label{
         margin-left: 0px;
         margin-right:15px;
@@ -80,4 +101,6 @@
     input#inlineRadio1.form-check-input {
         margin-right: 5px;
     }
+
+}
 </style>
