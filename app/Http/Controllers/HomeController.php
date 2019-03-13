@@ -56,6 +56,9 @@ class HomeController extends Controller
         //$bookings = Booking::where('articles.user_id', auth()->id());
         $bookings = Auth::user()->bookings;
 
+        $bookings = Booking::where('user_id', auth()->id())->get();
+
+
         $user = User::all();
 
         return view('home', compact(['articles', 'bookings', 'user', 'sentBookings']));
