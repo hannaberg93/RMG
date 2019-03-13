@@ -16,14 +16,28 @@
                 <input type="text" class="form-control" name="title" placeholder="Titel" required value="{{ old('title') }}">
             </div>
 
+            <label><i>Välj en kategori *</i></label><br>
+            <div class="form-check form-check-inline">
+                @foreach($categorys as $category)
+                    <input class="form-check-input" type="radio" name="category_id" id="inlineRadio1" required value="{{ old($category->id) }}">
+                    <label class="form-check-label" for="inlineRadio1">{{ $category->name }}</label>
+                @endforeach
+            </div>
+            <br>
+
             <div class="form-group">
                 <label for="desc">Beskrivning *</label>
                 <input type="text" class="form-control" name="desc" placeholder="Beskrivning" required value="{{ old('desc') }}">
             </div>
 
             <div class="form-group">
+                <label for="desc">Artikelns lokalisering *</label>
+                <input type="text" class="form-control" name="city" placeholder="Plats" required value="{{ old('city') }}">
+            </div>
+
+            <div class="form-group">
                 <label for="price_per_hour">Pris per timme *</label>
-                <input type="text" class="form-control" name="price_per_hour" placeholder="Pris per timme" 
+                <input type="text" class="form-control" name="price_per_hour" placeholder="Pris per timme"
                 required value="{{ old('price_per_hour') }}">
             </div>
 
@@ -56,3 +70,14 @@
 
     </div>
 @endsection
+
+<style>
+    body > div > form > div > label{
+        margin-left: 0px;
+        margin-right:15px;
+    }
+
+    input#inlineRadio1.form-check-input {
+        margin-right: 5px;
+    }
+</style>
