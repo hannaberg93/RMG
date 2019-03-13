@@ -22,7 +22,7 @@
             <div class="card mt-3 col-12 p-3 bg-light text-dark">
 
                 <h4>Välkommen {{ Auth::user()->name }}<br></h4><p> Du är inloggad!</p><hr>
-                
+
 
                     <div class="container mt-2">
                         <h4>Mina artiklar</h4>
@@ -49,6 +49,7 @@
                                             <p>Artikel:  {{ $booking->article->title }}</p>
                                             <p>Från:  {{ $booking->date_start->isoFormat('LLL') }}<br>
                                             Till: {{ $booking->date_end->isoFormat('LLL') }}</p>
+                                            <hr>
                                         </div>
 
                                     </div>
@@ -60,20 +61,18 @@
                         <div class="row">
                             <h4>Utgående bokningsförfrågningar</h4>
 
-                        @foreach ($bookings as $sentBooking)
-                        @if ($sentBooking->user_id == Auth::user()->id)
+                        @foreach ($sentBookings as $booking)
+                        @if ($booking->user_id == Auth::user()->id)
 
-                            <p>User id: {{ $sentBooking->user_id }}</p>
-                            <p>Auth user id: {{ Auth::user()->id }}</p>
 
-                            <h2>Titel: {{ $sentBooking->article->title }}</h2>
+                            <h2>Titel: {{ $booking->article->title }}</h2>
                             <ul>
-                                <li>Beskrivning: {{ $sentBooking->article->desc }}</li>
-                                <li>Pris per timme: {{ $sentBooking->article->price_per_hour }}</li>
-                                <li>Pris per dag: {{ $sentBooking->article->price_per_day }}</li>
-                                <li>Pris per vecka: {{ $sentBooking->article->price_per_week }}</li>
-                                <li>Kategori: {{ $sentBooking->article->category->name }}</li>
-                                <li>Plats: {{ $sentBooking->article->city }}</li>
+
+                                <li>Pris per timme: {{ $booking->article->price_per_hour }}</li>
+                                <li>Pris per dag: {{ $booking->article->price_per_day }}</li>
+                                <li>Pris per vecka: {{ $booking->article->price_per_week }}</li>
+                                <li>Kategori: {{ $booking->article->category->name }}</li>
+                                <li>Plats: {{ $booking->article->city }}</li>
                             </ul>
 
                         @endif
@@ -121,5 +120,5 @@
         border: 1px solid black;
     }
 
-  
+
 </style>
