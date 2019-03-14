@@ -4,7 +4,7 @@
 
 
 <div class="container mt-4">
-<h1 class="text-center mb-4">Redigera artikel</h1>
+<h1 class="text-center mb-4" style="color:#17a2b8">Redigera artikel</h1>
         <div class="row justify-content-center">
             <form method="POST" action="/articles/{{ $article->id }}" class="col-md-9">
                 @method('PATCH')
@@ -44,11 +44,11 @@
 
                 <div class="form-group mt-3">
                     <label for="desc">City</label>
-                    <input type="text" name="desc" class="form-control" required>{{ old('city') ? old('city') : $article->city }}</input>
+                    <textarea type="text" name="desc" class="form-control" rows="1" required>{{ old('city') ? old('city') : $article->city }}</textarea>
                 </div>
 
 
-                <button type="submit" class="btn btn-warning mt-4">Spara ändringar</button>
+                <button type="submit" class="btn btn-outline-info mt-4">Spara ändringar</button>
 
             </form>
 
@@ -56,11 +56,26 @@
                 <form method="POST" action="/articles/{{ $article->id }}">
                     @method('DELETE')
                     @csrf
-                    <button type="submit" class="btn btn-danger mt-4">Radera</button>
+                    <button type="submit" class="btn btn-outline-danger mt-2">Radera</button>
                 </form>
             </div>
         </div>
-        <a href="/articles/{{$article->id}}" style="" class="m-3"><p>Tillbaka till artikeln</p></a>
+        <hr>
+        <a href="/articles/{{$article->id}}" style="color:#17a2b8;" class="m-3"><p>Tillbaka till artikeln</p></a>
     </div> <!-- END .container -->
 
 @endsection
+
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.container{
+ font-family: Roboto;
+}
+
+h1 {
+    color: gray;
+}
+
+</style>

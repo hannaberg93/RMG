@@ -22,8 +22,8 @@
 
             <i class="fas fa-phone m-0"></i> {{ $article->user->phone }}
             <hr>
-            <span class="badge badge-secondary p-2"><i class="fas fa-map-marker-alt"></i> Stad: {{ $article->city }}</span>
-            <span class="badge badge-secondary p-2">Kategori: {{ $article->category->name }}</span>
+            <span class="badge badge-info p-2"><i class="fas fa-map-marker-alt"></i> Stad: {{ $article->city }}</span>
+            <span class="badge badge-info p-2">Kategori: {{ $article->category->name }}</span>
 
             <hr>
             <div class="description">
@@ -95,7 +95,7 @@
                     <div class="form-group m-1">
                         <label for="message">Meddelande</label>
                         <textarea class="form-control" rows="3" name ="message" placeholder="optional"></textarea>
-                        <button type="submit" class="btn btn-warning mt-4">Skicka</button>
+                        <button type="submit" class="btn btn-outline-info mt-4">Skicka</button>
                     </div>
                 </form>
             </div>
@@ -108,6 +108,21 @@
 @endsection
 
 <style>
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.container {
+    font-family: Roboto;
+}
+
+
+h1, h2{
+    color: #17a2b8;
+}
+
+i{
+    color: #17a2b8;
+}
 .description p{
     margin:0;
 }
