@@ -94,7 +94,7 @@
 
                     <div class="form-group m-1">
                         <label for="message">Meddelande</label>
-                        <textarea class="form-control" rows="3" name ="message" placeholder="optional"></textarea>
+                        <textarea class="form-control" rows="3" name ="message"></textarea>
                         <button type="submit" class="btn btn-outline-info mt-4">Skicka</button>
                     </div>
                 </form>
