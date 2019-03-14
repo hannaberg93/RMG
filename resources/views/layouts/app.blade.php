@@ -14,6 +14,7 @@
 </head>
 <body>
 
+
     <!-- include our navigation menu -->
 
     @include('layouts/nav')
