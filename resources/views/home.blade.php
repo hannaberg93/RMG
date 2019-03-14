@@ -19,17 +19,17 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card mt-3 col-12 p-3 bg-light text-dark">
+            <div class="card mt-3 col-12 p-3 bg-light">
 
-                <h4>Välkommen {{ Auth::user()->name }}<br></h4><p> Du är inloggad!</p><hr>
-                
+                <h1 class="inloggad text-center">Välkommen {{ Auth::user()->name }}<br></h1><!--<p> Du är inloggad!</p>--><hr>
 
-                    <div class="container mt-2">
-                        <h4>Mina artiklar</h4>
+
+                    <div class="container mt-2 text-dark bg-white p-4 text-center">
+                        <h2 class="my-stuff-rubrik">Mina artiklar</h2>
                             @foreach($articles as $article)
-                            <div class="row ">
-                                <div class="col-md-9">
-                                    <a href="/articles/{{$article->id}}">{{ $article->title }}</a>
+                            <div class="row my-stuff d-flex justify-content-center">
+                                <div class="col-md-8">
+                                    <a style="color:black" href="/articles/{{$article->id}}">{{ $article->title }}</a>
                                 </div>
 
                                 <div class="col-md-2 text-center">
@@ -39,16 +39,17 @@
                             @endforeach
                     </div>
 
-                    <div class="container mt-5">
-                        <h4>Inkommande bokningsförfrågningar</h4>
+                    <div class="container mt-3 bg-white p-3">
+                        <h2>Inkommande bokningsförfrågningar</h2><hr>
                             @foreach($bookings as $booking)
-                                <div class="container mt-2">
+                                <div class="container mt-2 bg-white p-3">
                                     <div class="row">
                                         <div class="col-md-9">
                                             <p>Användare: {{ $booking->user->name}}</p>
                                             <p>Artikel:  {{ $booking->article->title }}</p>
                                             <p>Från:  {{ $booking->date_start->isoFormat('LLL') }}<br>
                                             Till: {{ $booking->date_end->isoFormat('LLL') }}</p>
+
                                         </div>
 
                                     </div>
@@ -56,18 +57,34 @@
                             @endforeach
                     </div>
 
-                    <div class="container mt-5">
-                        <div class="row">
-                            <h4>Utgående bokningsförfrågningar</h4>
+                    <div class="container mt-3 bg-white p-3">
+                      <h2>Utgående bokningsförfrågningar</h2><hr>
 
 
+                             @foreach ($sentBookings as $booking)
+                            @if ($booking->user_id == Auth::user()->id)
+                                <div class="container bg-white p-2">
+                                    <div class="row">
+                                        <div class="col-md">
+                                        <h5><a style="color:black" href="articles/{{$booking->article->id}}">{{ $booking->article->title }}</a></h5>
 
+                            <ul>
+                                Till: {{ $booking->article->user->name }}
+                                <li>Plats: {{ $booking->article->city }}</li>
+                                <li>Pris per timme: {{ $booking->article->price_per_hour }} kr /dag: {{ $booking->article->price_per_day }} kr /vecka: {{ $booking->article->price_per_week }} kr</li>
+                                <li>Kategori: {{ $booking->article->category->name }}</li>
 
-                        </div>
+                            </ul><hr>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                  @endif
+                            @endforeach
                     </div>
 
-
-                <button type class="btn btn-secondary">
+                <button type class="btn btn-outline-info mt-3">
                     <a href="/articles/create">Lägg till en ny artikel</a></button>
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -77,11 +94,7 @@
 
                 </div>
 
-                <a  class="btn btn-danger col-2" href="{{ route('logout') }}"
-                                                       onclick="event.preventDefault();
-                                                                     document.getElementById('logout-form').submit();">
-                                                        {{ __('Logga ut') }}
-                                                    </a>
+
 
             </div>
         </div>
@@ -91,19 +104,46 @@
 @endsection
 
 <style>
+
+  @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+  .container{
+      font-family: Roboto;
+  }
+
+h1{
+    color: #17a2b8;
+}
+
+h2{
+    color: #17a2b8;
+    font-family: Roboto;
+}
+
+h5{
+    color: gray;
+}
+
+.my-stuff-rubrik {
+    color: gray;
+}
+li{
+    color: gray;
+}
+
+
    body > div.container > div > div > div > button > a {
-        color: white;
+        color: #17a2b8;
     }
 
-    body > div.container > div > div > div > button {
-        margin-top: 10vh;
-        border: 1px solid black;
-    }
+p{
+    font-size: 1em;
+    font-family:Roboto;
+    color: gray;
 
-    body > div.container > div > div > a{
-        margin-top: 20px;
-        border: 1px solid black;
-    }
+}
 
-  
+
+
+
 </style>

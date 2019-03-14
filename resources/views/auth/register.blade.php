@@ -3,8 +3,8 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+        <div class="col-md-8 mt-5">
+            <div class="card shadow p-3 mb-5 rounde">
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
@@ -144,7 +144,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-outline-info">
                                     {{ __('Register') }}
                                 </button>
                             </div>
@@ -156,3 +156,10 @@
     </div>
 </div>
 @endsection
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+.container {
+   font-family: Roboto;
+    }
+</style>

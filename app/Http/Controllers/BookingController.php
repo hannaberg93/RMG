@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use App\Article;
 use App\Booking;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,7 @@ class BookingController extends Controller
      */
     public function index()
     {
+
     }
 
     /**
@@ -44,10 +46,9 @@ class BookingController extends Controller
         $booking->date_end = $request->date_end;
         $booking->user_id = Auth::user()->id;
 
-        //dd($article->user_id);
-
         $booking->save();
 
+        return redirect('/home');
     }
 
     /**

@@ -3,7 +3,8 @@
 @section('content')
     <div class="container mt-3">
 
-        <h1>Skapa en artikel</h1>
+
+        <h1 class="create-artikel text-center">Skapa en artikel</h1>
 
         @include('partials/validation_errors')
 
@@ -19,7 +20,7 @@
             <label><i>Välj en kategori *</i></label><br>
             <div class="form-check form-check-inline">
                 @foreach($categorys as $category)
-                    <input class="form-check-input" type="radio" name="category_id" id="inlineRadio1" required value="{{ old($category->id) }}">
+                    <input class="form-check-input" type="radio" name="category_id" id="inlineRadio1" required value="{{ $category->id }}">
                     <label class="form-check-label" for="inlineRadio1">{{ $category->name }}</label>
                 @endforeach
             </div>
@@ -58,20 +59,47 @@
                 <input type="text" class="form-control" name="images_url" placeholder="Bild URL" required value="{{ old('images_url') }}">
             </div>
 
-            <label><i>* Obligatoriska</i></label>
+           <div class="obligatory"> <label><i>* Obligatoriska</i></label></div>
 
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" name="submit" placeholder="Skicka!">
+            <div class="form-group m-2">
+                <input type="submit" class="btn btn-outline-info" name="submit" placeholder="Skicka!">
             <div>
 
         </form>
-
+        <div class="go-back my-4">
         <a href="/articles">&laquo; Tillbaka</a>
+        </div>
+
+
 
     </div>
 @endsection
 
 <style>
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.container{
+    font-family: Roboto;
+}
+
+label {
+
+    color: gray;
+}
+
+h1{
+    color:#17a2b8;
+
+}
+
+
+
+
+.go-back a{
+    color: gray;
+    font-size: 1.5em;
+}
     body > div > form > div > label{
         margin-left: 0px;
         margin-right:15px;
@@ -80,4 +108,6 @@
     input#inlineRadio1.form-check-input {
         margin-right: 5px;
     }
+
+}
 </style>

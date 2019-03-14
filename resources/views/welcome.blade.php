@@ -1,25 +1,23 @@
 @extends('layouts/app')
 
 @section('content')
-    <div class="container mt-4">
-        <h1>Rent my gear</h1>
-    </div>
 
-    <div class="container welcome-content mt-4">
+
+    <div class="container welcome-content">
       <div class="view" style="background-image: url('https://images.unsplash.com/photo-1468495244123-6c6c332eeece?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-        <div class="row welcome-text p-4">
-          <div class="col-md-4 text-secondary text-center bg-light text-md-left m-3">
-
+        <div class="row welcome-text p-4 d-flex align-items-center  ">
+          <div class="col-md-5 text-white text-center text-md-left m-3">
+            <h1>Rent my gear</h1>
             <h3 class="p-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               iste.</h3>
           </div>
         </div>
       </div>
 
-      <div class="container">
+      <div class="container catchy-text">
       <div class="row info-start mt-4">
         <div class="col-md-6 order-md-2 mt-4">
-          <h2 class="featurette-heading"><span class="text-muted">Har du massa prylar som ligger och skräpar?</span></h2>
+          <h2 class="featurette-heading"><span class="rubrik" style="color:#17a2b8">Har du massa prylar som ligger och skräpar?</span></h2>
           <p class="">Att samla på sig saker som bara behövs en kortare tid ter sig meningslöst. Alltfler upptäcker
             att det är bättre att hyra eller låna de saker som inte används så ofta. Ofta tas exemplet borrmaskin,
             som sägs användas i snitt 15 minuter per borrmaskin i privat ägo.
@@ -33,7 +31,7 @@
 
       <div class="row info-start">
         <div class="col-md-8 mt-4">
-          <h2 class="featurette-heading"><span class="text-muted">Delandets ekonomi</span></h2>
+          <h2 class="featurette-heading"><span class="rubrik" style="color:#17a2b8">Delandets ekonomi</span></h2>
           <p class="">Att hyra eller låna är en del i vad som nu alltmer kommer under namnet Delandets ekonomi eller
             Kollaborativ ekonomi. Ordet kollaborativ syftar på att det är en form av samarbete.
             Det är ett sätt att mer resurseffektivt dela på saker samtidigt som man minskar de privata utläggen för
@@ -47,14 +45,14 @@
     </div>
       <div class="row info-texts-start">
         <div class="col-md-4 p-4">
-          <p class="graphic-icon text-center"><i class="fas fa-recycle" style="font-size: 6em; color:cadetblue;"></i></p>
+          <p class="graphic-icon text-center"><i class="fas fa-recycle" style="font-size: 6em; color:#17a2b8;"></i></p>
           <p>Lorem ipsum dolor amet succulents pok pok poutine, venmo cray vexillologist heirloom.
             Bitters shoreditch keytar, biodiesel ethical pabst af tote bag pork belly intelligentsia street art cray
             kombucha selfies. Air plant unicorn raclette kinfolk snackwave woke live-edge celiac drinking vinegar.
             Trust fund air plant marfa pickled photo booth.</p>
         </div>
         <div class="col-md-4 p-4">
-          <p class="graphic-icon text-center"><i class="fas fa-hand-holding-usd" style="font-size: 6em; color:cadetblue;"></i></p>
+          <p class="graphic-icon text-center"><i class="fas fa-hand-holding-usd" style="font-size: 6em; color:#17a2b8;"></i></p>
           <p>Lorem ipsum dolor amet succulents pok pok poutine, venmo cray vexillologist heirloom.
             Bitters shoreditch keytar, biodiesel ethical pabst af tote bag pork belly intelligentsia street art cray
             kombucha selfies. Air plant unicorn raclette kinfolk snackwave woke live-edge celiac drinking vinegar.
@@ -62,7 +60,7 @@
         </div>
 
         <div class="col-md-4 p-4">
-          <p class="graphic-icon text-center"><i class="far fa-smile" style="font-size: 6em; color:cadetblue;"></i></p>
+          <p class="graphic-icon text-center"><i class="far fa-smile" style="font-size: 6em; color:#17a2b8;"></i></p>
           <p>Lorem ipsum dolor amet succulents pok pok poutine, venmo cray vexillologist heirloom.
             Bitters shoreditch keytar, biodiesel ethical pabst af tote bag pork belly intelligentsia street art cray
             kombucha selfies. Air plant unicorn raclette kinfolk snackwave woke live-edge celiac drinking vinegar.
@@ -73,7 +71,7 @@
 
 
 
-          <div class="bild-karusell mt-3 mb-3">
+          <div class="bild-karusell mt-3 mb-5">
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -99,9 +97,27 @@
     </div>
 
   <style>
+
+  @import url('https://fonts.googleapis.com/css?family=Roboto');
+
   .carousel-item {
-  height: 500px;
+  height: 450px;
   }
+
+
+
+  .view{
+      height: 350px;
+  }
+
+  .catchy-text{
+      padding: 0px;
+  }
+
+  body {
+      font-family:Roboto;
+  }
+
   </style>
 
 
