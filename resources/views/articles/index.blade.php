@@ -7,7 +7,7 @@
         <h1 class="mb-4">Kategorier</h1>
         <div class="container text-center">
             @foreach($categorys as $category)
-                <span class="badge badge-secondary p-2 m-1">
+                <span class="badge badge-info p-2 m-1">
                     <a href="/articles/category/{{ $category->id }}">
                         {{ $category->name }}
                     </a>
@@ -43,6 +43,12 @@
 @endsection
 
 <style>
+
+  @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+  .container{
+      font-family: Roboto;
+  }
 .article {
     min-width: 200px;
     min-height: 480px;
@@ -64,7 +70,7 @@
 }
 
 h1 {
-    color: cadetblue !important;
+    color: gray;
 }
 
 .article:hover{
@@ -77,7 +83,7 @@ body > div > div > div > span > a{
 }
 
 body > div > div > div > span > a:hover{
-    color:black;
+    color:white;
 }
 
 

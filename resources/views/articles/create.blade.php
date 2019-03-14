@@ -3,7 +3,8 @@
 @section('content')
     <div class="container mt-3">
 
-        <h1>Skapa en artikel</h1>
+
+        <h1 class="create-artikel text-center">Skapa en artikel</h1>
 
         @include('partials/validation_errors')
 
@@ -58,10 +59,10 @@
                 <input type="text" class="form-control" name="images_url" placeholder="Bild URL" required value="{{ old('images_url') }}">
             </div>
 
-            <label><i>* Obligatoriska</i></label>
+           <div class="obligatory"> <label><i>* Obligatoriska</i></label></div>
 
             <div class="form-group m-2">
-                <input type="submit" class="btn btn-lol text-white" name="submit" placeholder="Skicka!">
+                <input type="submit" class="btn btn-outline-info" name="submit" placeholder="Skicka!">
             <div>
 
         </form>
@@ -69,24 +70,30 @@
         <a href="/articles">&laquo; Tillbaka</a>
         </div>
 
+
+
     </div>
 @endsection
 
 <style>
 
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.container{
+    font-family: Roboto;
+}
+
 label {
-    font-weight: bold;
+
+    color: gray;
 }
 
 h1{
-    color:cadetblue;
-}
-
-.btn-lol, .btn-lolhover, .btn-lol:active, .btn-lol:visited {
-    background-color: cadetblue !important;
-
+    color:#17a2b8;
 
 }
+
+
 
 
 .go-back a{
