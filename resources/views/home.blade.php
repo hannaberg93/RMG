@@ -45,8 +45,11 @@
                                 <div class="container mt-2 bg-white p-3">
                                     <div class="row">
                                         <div class="col-md-9">
-                                            <p>Användare: {{ $booking->user->name}}</p>
+                                            <p>Användare: {{ $booking->user->name}}. </p>
+                                            <p>Kontaktuppgifter: {{ $booking->user->phone}}, {{ $booking->user->email}}</p>
+                                            <br>
                                             <p>Artikel:  {{ $booking->article->title }}</p>
+                                            <p>Meddelande: {{ $booking->message}}</p>
                                             <p>Från:  {{ $booking->date_start->isoFormat('LLL') }}<br>
                                             Till: {{ $booking->date_end->isoFormat('LLL') }}</p>
 
