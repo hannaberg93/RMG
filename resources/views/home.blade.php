@@ -29,7 +29,7 @@
                             @foreach($articles as $article)
                             <div class="row my-stuff d-flex justify-content-center">
                                 <div class="col-md-8">
-                                    <a href="/articles/{{$article->id}}">{{ $article->title }}</a>
+                                    <a style="color:black" href="/articles/{{$article->id}}">{{ $article->title }}</a>
                                 </div>
 
                                 <div class="col-md-2 text-center">
@@ -66,15 +66,14 @@
                                 <div class="container bg-white p-2">
                                     <div class="row">
                                         <div class="col-md">
-                                        <h5>{{ $booking->article->title }}</h5>
+                                        <h5><a style="color:black" href="articles/{{$booking->article->id}}">{{ $booking->article->title }}</a></h5>
 
                             <ul>
-
-                                <li>Pris per timme: {{ $booking->article->price_per_hour }}</li>
-                                <li>Pris per dag: {{ $booking->article->price_per_day }}</li>
-                                <li>Pris per vecka: {{ $booking->article->price_per_week }}</li>
-                                <li>Kategori: {{ $booking->article->category->name }}</li>
+                                Till: {{ $booking->article->user->name }}
                                 <li>Plats: {{ $booking->article->city }}</li>
+                                <li>Pris per timme: {{ $booking->article->price_per_hour }} kr /dag: {{ $booking->article->price_per_day }} kr /vecka: {{ $booking->article->price_per_week }} kr</li>
+                                <li>Kategori: {{ $booking->article->category->name }}</li>
+
                             </ul><hr>
 
                                         </div>
@@ -132,9 +131,7 @@ li{
     color: gray;
 }
 
-.my-stuff a{
-    color: gray;
-}
+
    body > div.container > div > div > div > button > a {
         color: #17a2b8;
     }
