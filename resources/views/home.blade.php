@@ -66,13 +66,11 @@
                                 <div class="container bg-white p-2">
                                     <div class="row">
                                         <div class="col-md">
-                                        <h5>{{ $booking->article->title }}</h5>
+                                        <h5><a href="articles/{{$booking->article->id}}">{{ $booking->article->title }}</a></h5>
 
                             <ul>
-
-                                <li>Pris per timme: {{ $booking->article->price_per_hour }}</li>
-                                <li>Pris per dag: {{ $booking->article->price_per_day }}</li>
-                                <li>Pris per vecka: {{ $booking->article->price_per_week }}</li>
+                                Till: {{ $booking->article->user->name }}
+                                <li>Pris per timme: {{ $booking->article->price_per_hour }} kr /dag: {{ $booking->article->price_per_day }} kr /vecka: {{ $booking->article->price_per_week }} kr</li>
                                 <li>Kategori: {{ $booking->article->category->name }}</li>
                                 <li>Plats: {{ $booking->article->city }}</li>
                             </ul><hr>
