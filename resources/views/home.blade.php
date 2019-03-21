@@ -48,7 +48,7 @@
                                             <p>Användare: {{ $booking->user->name}}. </p>
                                             <p>Kontaktuppgifter: {{ $booking->user->phone}}, {{ $booking->user->email}}</p>
                                             <br>
-                                            <p>Artikel:  {{ $booking->article->title }}</p>
+                                            <p>Artikel:  <a style="color:black" href="articles/{{$booking->article->id}}">{{ $booking->article->title }}</a></p>
                                             <p>Meddelande: {{ $booking->message}}</p>
                                             <p>Från:  {{ $booking->date_start->isoFormat('LLL') }}<br>
                                             Till: {{ $booking->date_end->isoFormat('LLL') }}</p>
