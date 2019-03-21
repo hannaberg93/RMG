@@ -57,7 +57,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        
+        $articles = Article::all()->sortByDesc("updated_at");
         $categorys = Category::all();
 
         return view('articles/create', compact(['articles', 'categorys']));
