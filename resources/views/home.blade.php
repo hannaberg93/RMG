@@ -45,8 +45,11 @@
                                 <div class="container mt-2 bg-white p-3">
                                     <div class="row">
                                         <div class="col-md-9">
-                                            <p>Användare: {{ $booking->user->name}}</p>
-                                            <p>Artikel:  {{ $booking->article->title }}</p>
+                                            <p>Användare: {{ $booking->user->name}}. </p>
+                                            <p>Kontaktuppgifter: {{ $booking->user->phone}}, {{ $booking->user->email}}</p>
+                                            <br>
+                                            <p>Artikel:  <a style="color:black" href="articles/{{$booking->article->id}}">{{ $booking->article->title }}</a></p>
+                                            <p>Meddelande: {{ $booking->message}}</p>
                                             <p>Från:  {{ $booking->date_start->isoFormat('LLL') }}<br>
                                             Till: {{ $booking->date_end->isoFormat('LLL') }}</p>
 
@@ -69,10 +72,10 @@
                                         <h5><a style="color:black" href="articles/{{$booking->article->id}}">{{ $booking->article->title }}</a></h5>
 
                             <ul>
-                                Till: {{ $booking->article->user->name }}
+                                Uthyrare: {{ $booking->article->user->name }}
                                 <li>Plats: {{ $booking->article->city }}</li>
-                                <li>Pris per timme: {{ $booking->article->price_per_hour }} kr /dag: {{ $booking->article->price_per_day }} kr /vecka: {{ $booking->article->price_per_week }} kr</li>
-                                <li>Kategori: {{ $booking->article->category->name }}</li>
+                                <li>Pris: /timme: {{ $booking->article->price_per_hour }} kr /dag: {{ $booking->article->price_per_day }} kr /vecka: {{ $booking->article->price_per_week }} kr</li>
+                                <li>Efterfrågad hyresperiod: {{ $booking->date_start }} - {{ $booking->date_end }}</li>
 
                             </ul><hr>
 

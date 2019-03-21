@@ -43,8 +43,8 @@
                 </div>
 
                 <div class="form-group mt-3">
-                    <label for="desc">City</label>
-                    <textarea type="text" name="desc" class="form-control" rows="1" required>{{ old('city') ? old('city') : $article->city }}</textarea>
+                    <label for="city">City</label>
+                    <textarea type="text" name="city" class="form-control" rows="1" required>{{ old('city') ? old('city') : $article->city }}</textarea>
                 </div>
 
 
