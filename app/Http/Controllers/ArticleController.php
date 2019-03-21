@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Auth;
+
 use App\Article;
 use App\Category;
+use App\User;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -106,6 +108,8 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
+        abort_if($article->user_id != auth()->id(), 403);
+
         return view('/articles/edit', compact('article'));
     }
 
@@ -118,6 +122,8 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
+        abort_if($article->user_id != auth()->id(), 403);
+
         $validData = $request->validate($this->validation_rules);
 
 		$article->title = $validData['title'];
