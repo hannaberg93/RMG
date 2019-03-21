@@ -19,7 +19,12 @@
                         <input type="text" name ="title" class="form-control" required value="{{ old('title') ? old('title') : $article->title }}">
                     </div>
                 </div> <!-- END .row (titel)-->
-
+                <label> Välj kategori</label>
+                <select class="selectpicker form-control" data-live-search="true" name="category_id">
+                    @foreach($categorys as $category)
+                        <option data-subtext="{{ $category->name }}" required value="{{ old('category_id') ? old('category_id') : $category->id }}"">{{ $category->name }}</option>
+                    @endforeach 
+                </select>
 
                 <div class="row mt-3">
                     <div class="col">
@@ -42,10 +47,21 @@
                     <textarea type="text" name="desc" class="form-control" rows="4" required>{{ old('desc') ? old('desc') : $article->desc }}</textarea>
                 </div>
 
-                <div class="form-group mt-3">
-                    <label for="city">City</label>
-                    <textarea type="text" name="city" class="form-control" rows="1" required>{{ old('city') ? old('city') : $article->city }}</textarea>
-                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="city">Stad</label>
+                        <input type="text" name ="city" class="form-control" required value="{{ old('city') ? old('city') : $article->city }}">
+                    </div>
+                </div> 
+
+                <div class="row">
+                    <div class="col">
+                        <label for="images_url">Bild URL</label>
+                        <input type="text" name ="images_url" class="form-control" required value="{{ old('images_url') ? old('images_url') : $article->images_url }}">
+                    </div>
+                </div> 
+
+
 
 
                 <button type="submit" class="btn btn-outline-info mt-4">Spara ändringar</button>
