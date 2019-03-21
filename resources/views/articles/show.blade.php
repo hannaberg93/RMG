@@ -35,12 +35,6 @@
             <div class="row prices mt-5 mb-3 text-center">
 
                 <div class="col m-2 p-3 bg-light">
-                    <i class="far fa-3x p-3 fa-clock"></i>
-                    <h4>{{ number_format($article->price_per_hour ,0, ',', ' ') }}kr</h4>
-                    <p>/timme</p>
-                </div>
-
-                <div class="col m-2 p-3 bg-light">
                     <i class="fas fa-3x p-3 fa-calendar-day"></i>
                     <h4>{{ number_format($article->price_per_day,0, ',', ' ') }}kr</h4>
                     <p>/dag</p>
@@ -76,7 +70,6 @@
 
                     <input type="hidden" name="article_id" value=" {{ $article->id }}" />
                     <input type="hidden" name="article_title" value=" {{ $article->title }}" />
-                    <input type="hidden" name="article_price_per_hour" value=" {{ $article->price_per_hour }}" />
                     <input type="hidden" name="article_price_per_day" value=" {{ $article->price_per_day }}" />
                     <input type="hidden" name="article_price_per_week" value=" {{ $article->price_per_week }}" />
                     <input type="hidden" name="article_city" value=" {{ $article->city }}" />

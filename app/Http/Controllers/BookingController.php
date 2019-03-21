@@ -59,7 +59,7 @@ class BookingController extends Controller
      */
     public function show(Booking $booking)
     {
-        $date = \Carbon\Carbon::parse($booking->created_at)->locale('sv');
+        $date = $booking->created_at->locale('sv');
         return view('/bookings/show', compact(['booking', 'date']));
     }
 
@@ -68,7 +68,7 @@ class BookingController extends Controller
      *
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
-        
+
     }
 
     /**

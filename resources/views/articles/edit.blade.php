@@ -23,10 +23,6 @@
 
                 <div class="row mt-3">
                     <div class="col">
-                        <label for="price_per_hour">Pris/timme(kr)</label>
-                        <input type="text" name="price_per_hour" class="form-control" required value="{{ old('price_per_hour') ? old('price_per_hour') : $article->price_per_hour }}">
-                    </div>
-                    <div class="col">
                         <label for="price_per_day">Pris/dag(kr)</label>
                         <input type="text" name ="price_per_day" class="form-control" required value="{{ old('price_per_day') ? old('price_per_day') : $article->price_per_day }}">
                     </div>

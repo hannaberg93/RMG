@@ -18,8 +18,8 @@ class CreateBookingsTable extends Migration
             $table->bigInteger('user_id');
             $table->bigInteger('article_id');
             $table->longtext('message');
-            $table->dateTime('date_start');
-            $table->dateTime('date_end');
+            $table->date('date_start');
+            $table->date('date_end');
             $table->boolean('confirmed')->default(false);
             $table->boolean('expired')->default(false);
             $table->timestamps();

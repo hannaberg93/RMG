@@ -37,12 +37,6 @@
             </div>
 
             <div class="form-group">
-                <label for="price_per_hour">Pris per timme *</label>
-                <input type="text" class="form-control" name="price_per_hour" placeholder="Pris per timme"
-                required value="{{ old('price_per_hour') }}">
-            </div>
-
-            <div class="form-group">
                 <label for="price_per_day">Pris per dag *</label>
                 <input type="text" class="form-control" name="price_per_day" placeholder="Pris per dag"
                 required value="{{ old('price_per_day') }}">

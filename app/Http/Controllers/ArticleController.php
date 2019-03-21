@@ -13,7 +13,6 @@ class ArticleController extends Controller
 	protected $validation_rules = [
 		'title' => 'required|min:5',
         'desc' => 'required|min:5',
-        'price_per_hour' => 'required|min:1',
         'price_per_day' => 'required|min:1',
         'price_per_week' => 'required|min:1',
 	];
@@ -74,7 +73,6 @@ class ArticleController extends Controller
 
         $article->title = $validData['title'];
         $article->desc = $validData['desc'];
-        $article->price_per_hour = $request->price_per_hour;
         $article->price_per_day = $request->price_per_day;
         $article->price_per_week = $request->price_per_week;
         $article->category_id = $request->category_id;
@@ -125,7 +123,6 @@ class ArticleController extends Controller
 
 		$article->title = $validData['title'];
         $article->desc = $validData['desc'];
-        $article->price_per_hour = $validData['price_per_hour'];
         $article->price_per_day = $validData['price_per_day'];
         $article->price_per_week = $validData['price_per_week'];
 		$article->save();

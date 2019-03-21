@@ -50,8 +50,8 @@
                                             <br>
                                             <p>Artikel:  <a style="color:black" href="articles/{{$booking->article->id}}">{{ $booking->article->title }}</a></p>
                                             <p>Meddelande: {{ $booking->message}}</p>
-                                            <p>Från:  {{ $booking->date_start->isoFormat('LLL') }}<br>
-                                            Till: {{ $booking->date_end->isoFormat('LLL') }}</p>
+                                            <p>Från:  {{ $booking->date_start->isoFormat('LL') }}<br>
+                                            Till: {{ $booking->date_end->isoFormat('LL') }}</p>
 
                                         </div>
 
@@ -74,8 +74,8 @@
                             <ul>
                                 Uthyrare: {{ $booking->article->user->name }}
                                 <li>Plats: {{ $booking->article->city }}</li>
-                                <li>Pris: /timme: {{ $booking->article->price_per_hour }} kr /dag: {{ $booking->article->price_per_day }} kr /vecka: {{ $booking->article->price_per_week }} kr</li>
-                                <li>Efterfrågad hyresperiod: {{ $booking->date_start }} - {{ $booking->date_end }}</li>
+                                <li>Pris: /dag: {{ $booking->article->price_per_day }} kr /vecka: {{ $booking->article->price_per_week }} kr</li>
+                                <li>Efterfrågad hyresperiod: {{ $booking->date_start->isoFormat('LL') }} - {{ $booking->date_end->isoFormat('LL') }}</li>
 
                             </ul><hr>
 

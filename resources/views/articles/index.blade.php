@@ -29,7 +29,7 @@
                     <img src="{{ $article->images_url }}"/>
                     <div class="article-short-info text-center p-2">
                         <h5 class="mb-3" style="text-transform: uppercase; font-weight: 300;">{{ $article->title }}</h5>
-                        <p>{{ \Carbon\Carbon::parse($article->created_at)->locale('sv')->isoFormat('LLL') }}</p>
+                        <p>{{ $article->created_at->isoFormat('LLL') }}</p>
                         <p><i class="fas fa-map-marker-alt p-1"></i>{{ $article->city }}</p>
                         <p style="color:green;" class="m-2">{{ number_format($article->price_per_day,0, ',', ' ') }} kr/dag</p>
                     </div> <!-- END .article-short-info -->
