@@ -8,7 +8,7 @@ use App\User;
 
 class Article extends Model
 {
-    protected $fillable = ['title', 'desc'];
+    protected $fillable = ['title', 'desc', 'city', 'images_url', 'category_id'];
 
     public function category(){
         return $this->belongsTo(Category::class);
