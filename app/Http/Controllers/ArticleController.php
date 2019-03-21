@@ -27,10 +27,8 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all()->sortByDesc("updated_at");
-        $categorys = Category::all();
 
-
-        return view('articles/index', compact(['articles', 'categorys']));
+        return view('articles/index', compact(['articles']));
     }
 
     /**
@@ -38,9 +36,9 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function category($id)
+    public function category(Category $category)
     {
-        $articles = Article::all()->where('category_id', $id)->sortByDesc("updated_at");;
+        $articles = $category->articles;
         $categorys = Category::all();
 
 
@@ -54,7 +52,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        $articles = Article::all()->sortByDesc("updated_at");;
+        $articles = Article::all()->sortByDesc("updated_at");
         $categorys = Category::all();
 
         return view('articles/create', compact(['articles', 'categorys']));
