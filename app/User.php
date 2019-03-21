@@ -48,4 +48,8 @@ class User extends Authenticatable
         return $this->hasManyThrough(Booking::class, Article::class);
     }
 
+    public function sentBookings(){
+        return $this->hasMany(Booking::class);
+    }
+
 }

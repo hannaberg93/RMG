@@ -65,7 +65,6 @@
 
 
                              @foreach ($sentBookings as $booking)
-                            @if ($booking->user_id == Auth::user()->id)
                                 <div class="container bg-white p-2">
                                     <div class="row">
                                         <div class="col-md">
@@ -83,7 +82,6 @@
 
                                     </div>
                                 </div>
-                                  @endif
                             @endforeach
                     </div>
 
