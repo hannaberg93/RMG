@@ -27,8 +27,9 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all()->sortByDesc("updated_at");
+        $categorys = Category::where('parent_id', 0)->orderBy('name')->get();
 
-        return view('articles/index', compact(['articles']));
+        return view('articles/index', compact(['articles', 'categorys']));
     }
 
     /**
@@ -39,8 +40,7 @@ class ArticleController extends Controller
     public function category(Category $category)
     {
         $articles = $category->articles;
-        $categorys = Category::all();
-
+        $categorys = Category::where('parent_id', 0)->orderBy('name')->get();
 
         return view('articles/index', compact(['articles', 'categorys']));
     }
@@ -52,7 +52,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        $articles = Article::all()->sortByDesc("updated_at");
+        $articles = Article::all()->sortByDesc("updated_at");;
         $categorys = Category::all();
 
         return view('articles/create', compact(['articles', 'categorys']));
@@ -69,7 +69,6 @@ class ArticleController extends Controller
         $validData = $request->validate($this->validation_rules);
 
         $article = new Article();
-
         $article->title = $validData['title'];
         $article->desc = $validData['desc'];
         $article->price_per_day = $request->price_per_day;
@@ -78,13 +77,9 @@ class ArticleController extends Controller
         $article->city = $request->city;
         $article->images_url = $request->images_url;
         $article->user_id = Auth::user()->id;
-
-        //dd($request->all());
-
         $article->save();
 
         return redirect('/articles/' . $article->id)->with('status', 'Artikeln skapades');
-
     }
 
     /**
@@ -123,7 +118,6 @@ class ArticleController extends Controller
         abort_if($article->user_id != auth()->id(), 403);
 
         $validData = $request->validate($this->validation_rules);
-
 		$article->title = $validData['title'];
         $article->desc = $validData['desc'];
         $article->price_per_day = $validData['price_per_day'];

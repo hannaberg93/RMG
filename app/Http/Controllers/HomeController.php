@@ -49,14 +49,10 @@ class HomeController extends Controller
      */
 
     public function index()
-
     {
         $articles = Auth::user()->articles;
-
         $bookings = Auth::user()->bookings;
-
         $sentBookings = Auth::user()->sentBookings;
-
         $user = User::all();
 
         return view('home', compact(['articles', 'bookings', 'user', 'sentBookings']));

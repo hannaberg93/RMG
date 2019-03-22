@@ -50,9 +50,6 @@
         </div> <!-- END .article-info -->
     </div> <!-- END .row -->
 
-
-
-
     <hr>
 
     <!--  Dont let user send request on its own articles  -->
