@@ -16,6 +16,9 @@ class ArticleController extends Controller
         'price_per_hour' => 'required|min:1',
         'price_per_day' => 'required|min:1',
         'price_per_week' => 'required|min:1',
+        'city' => 'required|min:3',
+        'images_url' => 'required|min:5',
+        'category_id' => 'required|min:1'
 	];
 
     /**
@@ -80,6 +83,7 @@ class ArticleController extends Controller
         $article->category_id = $request->category_id;
         $article->city = $request->city;
         $article->images_url = $request->images_url;
+        $article->category_id = $request->category_id;
         $article->user_id = Auth::user()->id;
 
         //dd($request->all());
@@ -109,7 +113,8 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        return view('/articles/edit', compact('article'));
+        $categorys = Category::all();
+        return view('/articles/edit', compact(['article', 'categorys']));
     }
 
     /**
@@ -124,11 +129,14 @@ class ArticleController extends Controller
         $validData = $request->validate($this->validation_rules);
 
 		$article->title = $validData['title'];
+        $article->category_id = $validData['category_id'];
         $article->desc = $validData['desc'];
         $article->price_per_hour = $validData['price_per_hour'];
         $article->price_per_day = $validData['price_per_day'];
         $article->price_per_week = $validData['price_per_week'];
-		$article->save();
+        $article->city = $validData['city'];
+        $article->images_url = $validData['images_url'];
+        $article->save();
 
 		return redirect('/articles/' . $article->id . '/edit')->with('status', 'Artikeln är uppdaterad!');
 
