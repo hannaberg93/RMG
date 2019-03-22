@@ -106,8 +106,9 @@ class ArticleController extends Controller
     public function edit(Article $article)
     {
         abort_if($article->user_id != auth()->id(), 403);
+        $categorys = Category::all();
 
-        return view('/articles/edit', compact('article'));
+        return view('/articles/edit', compact(['article', 'categorys']));
     }
 
     /**
