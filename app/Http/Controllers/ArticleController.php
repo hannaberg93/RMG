@@ -111,11 +111,10 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Article $article)
-   {
-       $categorys = Category::all();
-       return view('/articles/edit', compact(['article', 'categorys']));
-   }
-    
+    {
+        $categorys = Category::all();
+        return view('/articles/edit', compact(['article', 'categorys']));
+    }
 
     /**
      * Update the specified resource in storage.
@@ -129,7 +128,7 @@ class ArticleController extends Controller
  
         $validData = $request->validate($this->validation_rules);
 
-        $article->title = $validData['title'];
+		$article->title = $validData['title'];
         $article->category_id = $validData['category_id'];
         $article->desc = $validData['desc'];
         $article->price_per_hour = $validData['price_per_hour'];
@@ -138,7 +137,6 @@ class ArticleController extends Controller
         $article->city = $validData['city'];
         $article->images_url = $validData['images_url'];
         $article->save();
-        
 
 		return redirect('/articles/' . $article->id . '/edit')->with('status', 'Artikeln är uppdaterad!');
 
