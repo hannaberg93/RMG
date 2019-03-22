@@ -23,8 +23,8 @@
                 <label> Välj kategori</label>
                 <select class="selectpicker form-control" data-live-search="true" name="category_id">
                     @foreach($categorys as $category)
-                        <option data-subtext="{{ $category->name }}" required value="{{ old('category_id') ? old('category_id') : $category->id }}"">{{ $category->name }}</option>
-                    @endforeach 
+                        <option data-subtext="{{ $category->name }}" required value="{{ old('category_id') ? old('category_id') : $category->id }}">{{ $category->name }}</option>
+                    @endforeach
                 </select>
 
                 <div class="row mt-3">
@@ -54,7 +54,7 @@
                         <label for="images_url">Bild URL</label>
                         <input type="text" name ="images_url" class="form-control" required value="{{ old('images_url') ? old('images_url') : $article->images_url }}">
                     </div>
-                </div> 
+                </div>
 
 
                 <button type="submit" class="btn btn-outline-info mt-4">Spara ändringar</button>
