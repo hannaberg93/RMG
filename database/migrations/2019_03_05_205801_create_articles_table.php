@@ -17,7 +17,6 @@ class CreateArticlesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('desc');
-            $table->string('price_per_hour');
             $table->string('price_per_day');
             $table->string('price_per_week');
             $table->bigInteger('user_id')->unsigned();

@@ -49,40 +49,14 @@ class HomeController extends Controller
      */
 
     public function index()
-
     {
-        $articles = Article::where('user_id', auth()->id())->get();
-
-        //$bookings = Booking::where('articles.user_id', auth()->id());
+        $articles = Auth::user()->articles;
         $bookings = Auth::user()->bookings;
-
-        $sentBookings = Booking::where('user_id', auth()->id())->get();
-
-
+        $sentBookings = Auth::user()->sentBookings;
         $user = User::all();
 
         return view('home', compact(['articles', 'bookings', 'user', 'sentBookings']));
     }
 
-
-
-    public function posts()
-
-    {
-
-        $posts = Post::all();
-
-        return view('posts',compact('posts'));
-
-    }
-
-
-
-    public function show($id)
-
-    {
-
-
-    }
 
 }
