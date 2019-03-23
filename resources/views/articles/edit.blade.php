@@ -15,12 +15,17 @@
 
                 <div class="row">
                     <div class="col">
-                        <label for="title">Titel</label>
+                        <label for="title">Ändra titel</label>
                         <input type="text" name ="title" class="form-control" required value="{{ old('title') ? old('title') : $article->title }}">
                     </div>
                 </div> <!-- END .row (titel)-->
 
-                <label> Välj kategori</label>
+                <div class="row mt-3">
+                    <div class="col">
+                        <p>Nuvarande kategori: {{ $article->category->name }}</p>
+                    </div>
+                </div>
+                <label> Ändra kategori</label>
                 <select class="selectpicker form-control" data-live-search="true" name="category_id">
                     @foreach($categorys as $category)
                         <option data-subtext="{{ $category->name }}" required value="{{ old('category_id') ? old('category_id') : $category->id }}">{{ $category->name }}</option>
@@ -29,29 +34,31 @@
 
                 <div class="row mt-3">
                     <div class="col">
-                        <label for="price_per_day">Pris/dag(kr)</label>
+                        <label for="price_per_day">Ändra pris/dag(kr)</label>
                         <input type="text" name ="price_per_day" class="form-control" required value="{{ old('price_per_day') ? old('price_per_day') : $article->price_per_day }}">
                     </div>
                     <div class="col">
-                        <label for="price_per_week">Pris/vecka(kr)</label>
+                        <label for="price_per_week">Ändra pris/vecka(kr)</label>
                         <input type="text" name="price_per_week" class="form-control" required value="{{ old('price_per_week') ? old('price_per_week') : $article->price_per_week }}">
                     </div>
                 </div> <!-- END .row (pris)-->
 
 
                 <div class="form-group mt-3">
-                    <label for="desc">Beskrivning</label>
+                    <label for="desc">Ändra beskrivning</label>
                     <textarea type="text" name="desc" class="form-control" rows="4" required>{{ old('desc') ? old('desc') : $article->desc }}</textarea>
-                </div>
-
-                <div class="form-group mt-3">
-                    <label for="city">City</label>
-                    <textarea type="text" name="city" class="form-control" rows="1" required>{{ old('city') ? old('city') : $article->city }}</textarea>
                 </div>
 
                 <div class="row">
                     <div class="col">
-                        <label for="images_url">Bild URL</label>
+                        <label for="city">Ändra stad</label>
+                        <input type="text" name ="city" class="form-control" required value="{{ old('city') ? old('city') : $article->city }}">
+                    </div>
+                </div> 
+
+                <div class="row">
+                    <div class="col">
+                        <label for="images_url">Ändra bild URL</label>
                         <input type="text" name ="images_url" class="form-control" required value="{{ old('images_url') ? old('images_url') : $article->images_url }}">
                     </div>
                 </div>

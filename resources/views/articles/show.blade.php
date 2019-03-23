@@ -27,7 +27,7 @@
 
             <hr>
             <div class="description">
-                <p class="mt-4 font-weight-bold">Beskrivning</p>
+                <p class="mt-4 font-weight-bold">Beskrivning:</p>
                 <p>{{ $article->desc }}</p>
             </div>
             <hr>

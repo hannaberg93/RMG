@@ -75,7 +75,6 @@ class ArticleController extends Controller
         $article->desc = $validData['desc'];
         $article->price_per_day = $request->price_per_day;
         $article->price_per_week = $request->price_per_week;
-        $article->category_id = $request->category_id;
         $article->city = $request->city;
         $article->images_url = $request->images_url;
         $article->category_id = $request->category_id;
