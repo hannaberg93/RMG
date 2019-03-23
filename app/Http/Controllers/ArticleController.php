@@ -131,7 +131,6 @@ class ArticleController extends Controller
 		$article->title = $validData['title'];
         $article->category_id = $validData['category_id'];
         $article->desc = $validData['desc'];
-        $article->price_per_hour = $validData['price_per_hour'];
         $article->price_per_day = $validData['price_per_day'];
         $article->price_per_week = $validData['price_per_week'];
         $article->city = $validData['city'];
